@@ -7,9 +7,10 @@
         <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/drawable/et_shape.xml" value="0.165" />
         <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/drawable/ic_icon_arrowleft.xml" value="0.165" />
         <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/drawable/ic_icons.xml" value="0.2" />
+        <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/drawable/line_shape.xml" value="0.2065" />
         <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/drawable/snackbar_shape.xml" value="0.2065" />
         <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/layout/snackbar.xml" value="0.25833333333333336" />
+        <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/layout/snackbar.xml" value="0.259375" />
       </map>
     </option>
   </component>

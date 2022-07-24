@@ -6,6 +6,22 @@
     android:orientation="vertical"
     tools:context=".fragments.FeedFragment">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/outfit_regular"
+            android:gravity="center"
+            android:text="Feed"
+            android:textSize="14sp"
+            android:textColor="@color/black" />
+    </androidx.appcompat.widget.Toolbar>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rec_feed"

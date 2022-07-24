@@ -38,11 +38,11 @@ class LoginActivity : AppCompatActivity() {
                 )
             ) {
                 showSnackBarPassword()
+            } else {
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                finish()
             }
-
-            val intent=Intent(this,MainActivity::class.java)
-            startActivity(intent)
-
         }
     }
 

@@ -1,4 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item
+        android:id="@+id/feed"
+        android:icon="@drawable/icon_home"
+        android:title="Feed"
+        />
+    <item
+        android:id="@+id/topic"
+        android:icon="@drawable/icon_category"
+        android:title="Topic"
+        />
+    <item
+        android:id="@+id/search"
+        android:icon="@drawable/icon_search"
+        android:title="Search"
+        />
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/icon_user"
+        android:title="Profile"
+        />
+
 </menu>

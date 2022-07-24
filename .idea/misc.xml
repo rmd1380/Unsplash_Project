@@ -9,8 +9,10 @@
         <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/drawable/ic_icons.xml" value="0.2" />
         <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/drawable/line_shape.xml" value="0.2065" />
         <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/drawable/snackbar_shape.xml" value="0.2065" />
-        <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/layout/snackbar.xml" value="0.259375" />
+        <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/layout/activity_main.xml" value="0.2553846153846154" />
+        <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/layout/snackbar.xml" value="0.264" />
+        <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/layout/snackbar_email.xml" value="0.2553846153846154" />
+        <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/layout/snackbar_password.xml" value="0.264" />
       </map>
     </option>
   </component>

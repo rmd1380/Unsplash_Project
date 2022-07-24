@@ -12,14 +12,14 @@ import com.google.android.material.snackbar.Snackbar
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
-class MainActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
     private lateinit var btnLogin: Button
     private var lvMain: ConstraintLayout? = null
     private lateinit var etEmail: EditText
     private lateinit var etPassword: EditText
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_login)
         init()
     }
 

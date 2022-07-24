@@ -3,7 +3,7 @@ package com.example.unsplashproject
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.example.unsplashproject.fragments.feedfragment.FeedFragment
+import com.example.unsplashproject.fragments.feedFragment.FeedFragment
 import com.example.unsplashproject.fragments.profilefragment.ProfileFragment
 import com.example.unsplashproject.fragments.searchfragment.SearchFragment
 import com.example.unsplashproject.fragments.topicfragment.TopicFragment

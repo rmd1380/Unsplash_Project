@@ -1,4 +1,5 @@
 package com.example.unsplashproject.model
 
-class FeedDetailModel {
-}
+data class FeedDetailModel(
+    val feed
+)

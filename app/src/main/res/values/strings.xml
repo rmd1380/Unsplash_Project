@@ -7,4 +7,11 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="feed">Feed</string>
     <string name="view">Views</string>
+    <string name="downloads">Downloads</string>
+    <string name="publishDate">Publish Date</string>
+    <string name="camera">Camera</string>
+    <string name="arrowBack">arrowBack</string>
+    <string name="feedDetailImgProfile">feedDetailImgProfile</string>
+    <string name="feedDetailImg">feedDetailImg</string>
+    <string name="Alishia_Marsi">Alishia Marsi</string>
 </resources>

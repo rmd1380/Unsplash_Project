@@ -1,4 +1,4 @@
-package com.example.unsplashproject.fragments
+package com.example.unsplashproject.fragments.searchfragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

@@ -1,4 +1,5 @@
 package com.example.unsplashproject.model
 
-class FeedModel {
-}
+data class FeedModel(
+    val img:Int
+)

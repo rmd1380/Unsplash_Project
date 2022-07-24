@@ -1,4 +1,4 @@
-package com.example.unsplashproject.fragments
+package com.example.unsplashproject.fragments.profilefragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

@@ -1,4 +1,4 @@
-package com.example.unsplashproject.fragments
+package com.example.unsplashproject.fragments.feedfragment
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -4,6 +4,6 @@
     <string name="req_for_valid_email">Please enter a valid email</string>
     <string name="invalid_password">Invalid Password</string>
     <string name="req_for_valid_password">at least 8 character (1..9,a..z)</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="feed">Feed</string>
 </resources>

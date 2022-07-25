@@ -17,6 +17,7 @@ interface LoginDao {
 
     @Delete
     fun delete(login: LoginModel)
+
     @Query("SELECT * FROM LoginModel")
-    fun getAllLoginDetail():LiveData<List<LoginModel>>
+    fun getAllLoginDetail(): LiveData<List<LoginModel>>
 }

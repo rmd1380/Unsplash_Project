@@ -8,22 +8,22 @@ import com.example.unsplashproject.dao.LoginDao
 import com.example.unsplashproject.model.LoginModel
 
 @Database(entities = [LoginModel::class], version = 1)
-abstract class LoginDataBase : RoomDatabase() {
+abstract class AppDatabase : RoomDatabase() {
 
     abstract fun loginDao(): LoginDao
 
     companion object {
-        private var instance: LoginDataBase? = null
-
-    }
-
-    fun getInstance(context: Context): LoginDataBase? {
-        if (instance == null) {
-            instance = Room.databaseBuilder(
-                context,
-                LoginDataBase::class.java, "LoginDatabase"
-            ).fallbackToDestructiveMigration().build()
+        private var instance: AppDatabase? = null
+        fun getInstance(context: Context): AppDatabase {
+            if (instance == null) {
+                instance = Room.databaseBuilder(
+                    context,
+                    AppDatabase::class.java, "LoginDatabase"
+                ).fallbackToDestructiveMigration().build()
+            }
+            return instance as AppDatabase
         }
-        return instance
+
     }
+
 }

@@ -7,8 +7,16 @@ import android.os.Bundle
 import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.lifecycle.ViewModelProvider
+import com.example.unsplashproject.model.LoginModel
+import com.example.unsplashproject.viewmodel.LoginViewModel
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
@@ -17,6 +25,8 @@ class LoginActivity : AppCompatActivity() {
     private var lvMain: ConstraintLayout? = null
     private lateinit var etEmail: EditText
     private lateinit var etPassword: EditText
+
+    private lateinit var userViewModel: LoginViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -25,6 +35,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun init() {
         bindView()
+        userViewModel = ViewModelProvider(this)[LoginViewModel::class.java]
         btnLogin.setOnClickListener {
             if (etEmail.text.toString().trim()
                     .isEmpty() || !(Patterns.EMAIL_ADDRESS.matcher(etEmail.text.toString().trim())
@@ -33,14 +44,12 @@ class LoginActivity : AppCompatActivity() {
                 showSnackBarEmail()
             } else if (etPassword.text.trim().isEmpty() || etPassword.text.trim().length < 8) {
                 showSnackBarPassword()
-            } else if (!isValidPassword(
-                    etPassword.text.toString().trim()
-                )
-            ) {
+            } else if (!isValidPassword(etPassword.text.toString().trim())) {
                 showSnackBarPassword()
             } else {
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
+                insertDataToDatabase()
                 finish()
             }
         }
@@ -81,6 +90,16 @@ class LoginActivity : AppCompatActivity() {
             snackBar.view as Snackbar.SnackbarLayout
         snackBarLayout.addView(customSnackView, 0)
         snackBar.show()
+    }
+
+    private fun insertDataToDatabase() {
+        val email = etEmail.text.toString().trim()
+        val password = etPassword.text.toString().trim()
+        val user = LoginModel(email, password)
+        CoroutineScope(Dispatchers.IO).launch {
+            userViewModel.insert(user)
+        }
+        Toast.makeText(this, "Successfully added", Toast.LENGTH_SHORT).show()
     }
 
 }

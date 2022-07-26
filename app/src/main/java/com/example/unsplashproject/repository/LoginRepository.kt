@@ -10,7 +10,7 @@ import kotlin.math.log
 class LoginRepository(application: Application) {
 
     private var loginDao: LoginDao
-    private lateinit var getlist: LiveData<List<LoginModel>>
+    private var getlist: LiveData<List<LoginModel>>
 
     init {
         val database = AppDatabase.getInstance(context = application)
@@ -30,7 +30,7 @@ class LoginRepository(application: Application) {
         loginDao.update(loginModel)
     }
 
-    suspend fun getLoginInfo(): LiveData<List<LoginModel>> {
+    fun getLoginInfo(): LiveData<List<LoginModel>> {
         return getlist
     }
 

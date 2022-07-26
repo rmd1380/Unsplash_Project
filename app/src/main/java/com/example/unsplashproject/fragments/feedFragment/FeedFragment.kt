@@ -31,6 +31,7 @@ class FeedFragment : Fragment() {
         item.add(FeedModel(R.drawable.ic_launcher_background))
         item.add(FeedModel(R.drawable.ic_launcher_background))
         item.add(FeedModel(R.drawable.ic_launcher_background))
+
         return view(inflater, container)
     }
 
@@ -41,6 +42,7 @@ class FeedFragment : Fragment() {
         recFeed.layoutManager = gridLayoutManager
         adapter = FeedAdapter(context, item)
         recFeed.adapter = adapter
+
         return view
     }
 }

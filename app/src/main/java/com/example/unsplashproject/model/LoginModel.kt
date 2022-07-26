@@ -5,6 +5,6 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class LoginModel(
-    @PrimaryKey val email: String,
+    @PrimaryKey val email: String="",
     val password: String
 )

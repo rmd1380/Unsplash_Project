@@ -5,7 +5,6 @@ import androidx.lifecycle.LiveData
 import com.example.unsplashproject.dao.LoginDao
 import com.example.unsplashproject.db.AppDatabase
 import com.example.unsplashproject.model.LoginModel
-import kotlin.math.log
 
 class LoginRepository(application: Application) {
 

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.unsplashproject.R
@@ -22,27 +23,27 @@ class FeedFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        item.add(FeedModel(R.drawable.ic_launcher_background))
-        item.add(FeedModel(R.drawable.ic_launcher_background))
-        item.add(FeedModel(R.drawable.ic_launcher_background))
-        item.add(FeedModel(R.drawable.ic_launcher_background))
-        item.add(FeedModel(R.drawable.ic_launcher_background))
-        item.add(FeedModel(R.drawable.ic_launcher_background))
-        item.add(FeedModel(R.drawable.ic_launcher_background))
-        item.add(FeedModel(R.drawable.ic_launcher_background))
-        item.add(FeedModel(R.drawable.ic_launcher_background))
-
-        return view(inflater, container)
-    }
-
-    private fun view(inflater: LayoutInflater, container: ViewGroup?): View {
         val view: View = inflater.inflate(R.layout.fragment_feed, container, false)
-        recFeed = view.findViewById(R.id.rec_feed)
+        init(view)
+        return view
+    }
+    private fun init(view: View) {
+        bindView(view)
+        item.clear()
+        item.add(FeedModel(R.drawable.ic_launcher_background))
+        item.add(FeedModel(R.drawable.ic_launcher_background))
+        item.add(FeedModel(R.drawable.ic_launcher_background))
+        item.add(FeedModel(R.drawable.ic_launcher_background))
         gridLayoutManager = GridLayoutManager(context, 2)
         recFeed.layoutManager = gridLayoutManager
-        adapter = FeedAdapter(context, item)
+        adapter = FeedAdapter(context, item) {
+            findNavController().navigate(R.id.feedDetailFragment)
+        }
         recFeed.adapter = adapter
+    }
 
-        return view
+    private fun bindView(view: View) {
+        recFeed = view.findViewById(R.id.rec_feed)
+
     }
 }

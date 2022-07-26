@@ -8,5 +8,4 @@ data class FeedDetailModel(
     val downloadCount:Int,
     val publishDate:DateFormat,
     val cameraName:String
-
 )

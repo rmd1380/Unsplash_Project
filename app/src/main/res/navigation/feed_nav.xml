@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/feedFragment">
+
+    <fragment
+        android:id="@+id/feedFragment"
+        android:name="com.example.unsplashproject.fragments.feedFragment.FeedFragment"
+        android:label="fragment_feed"
+        tools:layout="@layout/fragment_feed" >
+        <action
+            android:id="@+id/action_feedFragment_to_feedDetailFragment"
+            app:destination="@id/feedDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/feedDetailFragment"
+        android:name="com.example.unsplashproject.fragments.feedFragment.FeedDetailFragment"
+        android:label="fragment_feed_detail"
+        tools:layout="@layout/fragment_feed_detail" >
+        <action
+            android:id="@+id/action_feedDetailFragment_to_feedProfileFragment"
+            app:destination="@id/feedProfileFragment" />
+        <action
+            android:id="@+id/action_feedDetailFragment_to_feedFragment"
+            app:destination="@id/feedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/feedProfileFragment"
+        android:name="com.example.unsplashproject.fragments.feedFragment.FeedProfileFragment"
+        android:label="fragment_feed_profile"
+        tools:layout="@layout/fragment_feed_profile" >
+        <action
+            android:id="@+id/action_feedProfileFragment_to_feedDetailFragment2"
+            app:destination="@id/feedDetailFragment" />
+    </fragment>
+</navigation>

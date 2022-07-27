@@ -9,5 +9,14 @@
         android:id="@+id/topicFragment"
         android:name="com.example.unsplashproject.fragments.topicfragment.TopicFragment"
         android:label="fragment_topic"
-        tools:layout="@layout/fragment_topic" />
+        tools:layout="@layout/fragment_topic" >
+        <action
+            android:id="@+id/action_topicFragment_to_topicDetailFragment"
+            app:destination="@id/topicDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/topicDetailFragment"
+        android:name="com.example.unsplashproject.fragments.topicfragment.TopicDetailFragment"
+        android:label="fragment_topic_detail"
+        tools:layout="@layout/fragment_topic_detail" />
 </navigation>

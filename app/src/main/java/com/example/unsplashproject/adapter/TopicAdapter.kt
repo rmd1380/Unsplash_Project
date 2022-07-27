@@ -7,9 +7,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.unsplashproject.R
+import com.example.unsplashproject.model.feed.FeedModel
 import com.example.unsplashproject.model.topic.TopicModel
 
-class TopicAdapter(private val context: Context, private val listItem: ArrayList<TopicModel>) :
+class TopicAdapter(private val context: Context, private val listItem: ArrayList<TopicModel>,private var callback: (TopicModel) -> Unit) :
     RecyclerView.Adapter<TopicAdapter.TopicItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TopicItemViewHolder {
@@ -20,6 +21,9 @@ class TopicAdapter(private val context: Context, private val listItem: ArrayList
     override fun onBindViewHolder(holder: TopicItemViewHolder, position: Int) {
         val item=listItem[position]
         holder.txtTopicItem.text=item.txtItemTopic
+        holder.itemView.setOnClickListener {
+            callback.invoke(listItem[position])
+        }
 
     }
 
@@ -27,8 +31,8 @@ class TopicAdapter(private val context: Context, private val listItem: ArrayList
         return listItem.size
     }
 
-    class TopicItemViewHolder(v: View) : RecyclerView.ViewHolder(v) {
-        val txtTopicItem:TextView=v.findViewById(R.id.tv_topic_item)
+    class TopicItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val txtTopicItem:TextView=itemView.findViewById(R.id.tv_topic_item)
 
     }
 

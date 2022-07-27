@@ -13,7 +13,10 @@
     <string name="camera">Camera</string>
     <string name="arrowBack">arrowBack</string>
     <string name="feedDetailImgProfile">feedDetailImgProfile</string>
+    <string name="topicDetailImg">topicDetailImg</string>
     <string name="feedDetailImg">feedDetailImg</string>
     <string name="Alishia_Marsi">Alishia Marsi</string>
+    <string name="Current_Event">Current Event</string>
     <string name="test_text">Things we love: 🍞 Crispbread (naturally) 🌍 Our planet 😋 Delicious food, everyday</string>
+    <string name="test_text_topic">Covering the latest important events, news-worthy moments and movements from around the world — from political protests to cultural celebrations. When submitting, please provide a photo description so we understand the full context of the image</string>
 </resources>

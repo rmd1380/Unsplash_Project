@@ -5,56 +5,57 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.unsplashproject.R
+import com.example.unsplashproject.adapter.FeedAdapter
+import com.example.unsplashproject.model.feed.FeedModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [TopicDetailFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class TopicDetailFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var gridLayoutManager: GridLayoutManager
+    private lateinit var ivArrowBack: ImageView
+    private lateinit var recTopicDetail: RecyclerView
+    private lateinit var adapterTopicDetail:FeedAdapter
+    private var item = ArrayList<FeedModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_topic_detail, container, false)
+        val view = inflater.inflate(R.layout.fragment_topic_detail, container, false)
+        init(view)
+        return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment TopicDetailFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            TopicDetailFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun init(view: View) {
+        bindView(view)
+        item.clear()
+        item.add(FeedModel(R.drawable.ic_launcher_background))
+        item.add(FeedModel(R.drawable.ic_launcher_background))
+        item.add(FeedModel(R.drawable.ic_launcher_background))
+        item.add(FeedModel(R.drawable.ic_launcher_background))
+        gridLayoutManager = GridLayoutManager(context, 2)
+        recTopicDetail.layoutManager = gridLayoutManager
+        adapterTopicDetail = FeedAdapter(context, item) {
+            findNavController().navigate(R.id.topicFragment)
+        }
+        recTopicDetail.adapter = adapterTopicDetail
+
+        ivArrowBack.setOnClickListener {
+            findNavController().popBackStack()
+        }
+
     }
+
+    private fun bindView(view: View) {
+        ivArrowBack = view.findViewById(R.id.arrow_back_topic)
+        recTopicDetail = view.findViewById(R.id.rec_topic_detail)
+
+
+    }
+
+
 }

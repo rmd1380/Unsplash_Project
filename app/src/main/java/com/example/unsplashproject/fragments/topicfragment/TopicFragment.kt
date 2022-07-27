@@ -47,6 +47,9 @@ class TopicFragment : Fragment() {
         gridLayoutManager = GridLayoutManager(context, 2)
         recTopic.layoutManager = gridLayoutManager
         adapter = TopicAdapter(context!!,item)
+        {
+            findNavController().navigate(R.id.topicDetailFragment)
+        }
         recTopic.adapter = adapter
     }
 

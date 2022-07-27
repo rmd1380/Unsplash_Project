@@ -31,6 +31,10 @@
             android:layout_height="wrap_content"
             app:boxStrokeColor="@color/Dark_Dark_200"
             app:hintTextColor="@color/Neutral_Neutral_800"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
             app:boxStrokeErrorColor="@color/Primary_Primary_500">
 
             <androidx.appcompat.widget.AppCompatEditText
@@ -48,6 +52,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:boxStrokeColor="@color/Dark_Dark_200"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
             app:hintTextColor="@color/Neutral_Neutral_800"
             app:boxStrokeErrorColor="@color/Primary_Primary_500">
 

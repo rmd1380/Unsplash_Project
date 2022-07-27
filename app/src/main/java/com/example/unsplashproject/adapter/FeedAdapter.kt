@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.unsplashproject.R
 import com.example.unsplashproject.model.feed.FeedModel
 
-class FeedAdapter(private var context: Context?, private var imgList: ArrayList<FeedModel>, private var callback: (FeedModel) -> Unit) :
+class FeedAdapter(private var context: Context?, private var imgList: ArrayList<FeedModel>, private var callback: ((FeedModel) -> Unit)?) :
     RecyclerView.Adapter<FeedAdapter.ViewHolder>() {
 
 
@@ -22,7 +22,7 @@ class FeedAdapter(private var context: Context?, private var imgList: ArrayList<
         val item = imgList[position]
         holder.img.setImageResource(item.img)
         holder.itemView.setOnClickListener {
-            callback.invoke(imgList[position])
+            callback!!.invoke(imgList[position])
         }
     }
 

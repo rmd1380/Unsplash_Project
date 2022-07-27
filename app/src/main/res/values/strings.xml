@@ -7,6 +7,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="feed">Feed</string>
     <string name="topics">Topics</string>
+    <string name="search">Search</string>
+    <string name="search_text">Search Text</string>
     <string name="view">Views</string>
     <string name="downloads">Downloads</string>
     <string name="publishDate">Publish Date</string>
@@ -17,6 +19,8 @@
     <string name="feedDetailImg">feedDetailImg</string>
     <string name="Alishia_Marsi">Alishia Marsi</string>
     <string name="Current_Event">Current Event</string>
+    <string name="photos">Photos</string>
+    <string name="users">Users</string>
     <string name="test_text">Things we love: 🍞 Crispbread (naturally) 🌍 Our planet 😋 Delicious food, everyday</string>
     <string name="test_text_topic">Covering the latest important events, news-worthy moments and movements from around the world — from political protests to cultural celebrations. When submitting, please provide a photo description so we understand the full context of the image</string>
 </resources>

@@ -1,4 +1,5 @@
 package com.example.unsplashproject.model.search
 
-class SearchModel {
-}
+data class SearchPhotoModel(
+    val photo:Int
+)

@@ -3,7 +3,7 @@ package com.example.unsplashproject.viewmodel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import com.example.unsplashproject.model.LoginModel
+import com.example.unsplashproject.model.login.LoginModel
 import com.example.unsplashproject.repository.LoginRepository
 
 class LoginViewModel(application: Application) : AndroidViewModel(application) {

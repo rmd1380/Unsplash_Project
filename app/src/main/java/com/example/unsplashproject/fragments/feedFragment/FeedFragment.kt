@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.unsplashproject.R
 import com.example.unsplashproject.adapter.FeedAdapter
-import com.example.unsplashproject.model.FeedModel
+import com.example.unsplashproject.model.feed.FeedModel
 
 class FeedFragment : Fragment() {
 

@@ -10,12 +10,21 @@
         android:name="com.example.unsplashproject.fragments.feedFragment.FeedFragment"
         android:label="fragment_feed"
         tools:layout="@layout/fragment_feed" >
+        <action
+            android:id="@+id/action_feedFragment_to_feedDetailFragment"
+            app:destination="@id/feedDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/feedDetailFragment"
         android:name="com.example.unsplashproject.fragments.feedFragment.FeedDetailFragment"
         android:label="fragment_feed_detail"
         tools:layout="@layout/fragment_feed_detail" >
+        <action
+            android:id="@+id/action_feedDetailFragment_to_feedProfileFragment2"
+            app:destination="@id/feedProfileFragment" />
+        <action
+            android:id="@+id/action_feedDetailFragment_to_feedFragment"
+            app:destination="@id/feedFragment" />
     </fragment>
     <fragment
         android:id="@+id/feedProfileFragment"
@@ -23,5 +32,8 @@
         android:label="fragment_feed_profile"
         tools:layout="@layout/fragment_feed_profile" >
 
+        <action
+            android:id="@+id/action_feedProfileFragment_to_feedDetailFragment"
+            app:destination="@id/feedDetailFragment" />
     </fragment>
 </navigation>

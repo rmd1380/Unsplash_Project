@@ -1,4 +1,4 @@
-package com.example.unsplashproject.model
+package com.example.unsplashproject.model.login
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

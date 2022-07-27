@@ -2,7 +2,7 @@ package com.example.unsplashproject.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.example.unsplashproject.model.LoginModel
+import com.example.unsplashproject.model.login.LoginModel
 
 @Dao
 interface LoginDao {

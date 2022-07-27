@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.unsplashproject.R
-import com.example.unsplashproject.model.FeedModel
+import com.example.unsplashproject.model.feed.FeedModel
 
 class FeedAdapter(private var context: Context?, private var imgList: ArrayList<FeedModel>, private var callback: (FeedModel) -> Unit) :
     RecyclerView.Adapter<FeedAdapter.ViewHolder>() {

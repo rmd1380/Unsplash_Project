@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.unsplashproject.dao.LoginDao
-import com.example.unsplashproject.model.LoginModel
+import com.example.unsplashproject.model.login.LoginModel
 
 @Database(entities = [LoginModel::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {

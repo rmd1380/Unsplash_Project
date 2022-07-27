@@ -7,7 +7,7 @@
         android:title="Feed"
         />
     <item
-        android:id="@+id/it_topic"
+        android:id="@+id/topic_nav"
         android:icon="@drawable/icon_category"
         android:title="Topic"
         />

@@ -10,7 +10,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.ViewModelProvider
-import com.example.unsplashproject.model.LoginModel
+import com.example.unsplashproject.model.login.LoginModel
 import com.example.unsplashproject.viewmodel.LoginViewModel
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.CoroutineScope

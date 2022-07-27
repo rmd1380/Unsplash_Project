@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.lifecycle.LiveData
 import com.example.unsplashproject.dao.LoginDao
 import com.example.unsplashproject.db.AppDatabase
-import com.example.unsplashproject.model.LoginModel
+import com.example.unsplashproject.model.login.LoginModel
 
 class LoginRepository(application: Application) {
 

@@ -1,4 +1,4 @@
-package com.example.unsplashproject.model
+package com.example.unsplashproject.model.feed
 
 import java.text.DateFormat
 

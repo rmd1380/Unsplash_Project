@@ -39,7 +39,7 @@ class TopicDetailFragment : Fragment() {
         item.add(FeedModel(R.drawable.ic_launcher_background))
         gridLayoutManager = GridLayoutManager(context, 2)
         recTopicDetail.layoutManager = gridLayoutManager
-        adapterTopicDetail = FeedAdapter(context, item) {
+        adapterTopicDetail = FeedAdapter(context) {
             findNavController().navigate(R.id.topicFragment)
         }
         recTopicDetail.adapter = adapterTopicDetail

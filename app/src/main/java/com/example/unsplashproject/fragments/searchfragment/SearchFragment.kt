@@ -49,7 +49,9 @@ class SearchFragment : Fragment() {
                     item.add(FeedModel(R.drawable.ic_launcher_background))
                     gridLayoutManager = GridLayoutManager(context, 2)
                     recSearch.layoutManager = gridLayoutManager
-                    adapterSearch = FeedAdapter(context, item, null)
+                    adapterSearch = FeedAdapter(context){
+
+                    }
                     recSearch.adapter = adapterSearch
                 }
                 else if (tab.position==1)

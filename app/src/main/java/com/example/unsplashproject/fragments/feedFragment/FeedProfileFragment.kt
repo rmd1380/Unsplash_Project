@@ -37,7 +37,7 @@ class FeedProfileFragment : Fragment() {
         item.add(FeedModel(R.drawable.ic_launcher_background))
         gridLayoutManager = GridLayoutManager(context, 2)
         recProfile.layoutManager = gridLayoutManager
-        adapterProfile= FeedAdapter(context,item,){
+        adapterProfile= FeedAdapter(context){
             findNavController().navigate(R.id.feedDetailFragment)
         }
         recProfile.adapter = adapterProfile

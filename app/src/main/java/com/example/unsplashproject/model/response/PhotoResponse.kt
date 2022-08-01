@@ -1,9 +1,10 @@
-package com.example.example
+package com.example.unsplashproject.model.response
 
+import com.example.unsplashproject.model.sitephotomodel.*
 import com.google.gson.annotations.SerializedName
 
 
-data class ExampleJson2KtKotlin (
+data class PhotoResponse (
 
   @SerializedName("id"                       ) var id                     : String?             = null,
   @SerializedName("created_at"               ) var createdAt              : String?             = null,
@@ -22,7 +23,6 @@ data class ExampleJson2KtKotlin (
   @SerializedName("liked_by_user"            ) var likedByUser            : Boolean?            = null,
   @SerializedName("current_user_collections" ) var currentUserCollections : ArrayList<String>   = arrayListOf(),
   @SerializedName("sponsorship"              ) var sponsorship            : Sponsorship?        = Sponsorship(),
-  @SerializedName("topic_submissions"        ) var topicSubmissions       : TopicSubmissions?   = TopicSubmissions(),
   @SerializedName("user"                     ) var user                   : User?               = User(),
   @SerializedName("exif"                     ) var exif                   : Exif?               = Exif(),
   @SerializedName("location"                 ) var location               : Location?           = Location(),

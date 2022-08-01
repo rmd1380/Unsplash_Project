@@ -24,6 +24,7 @@ class FeedFragment : Fragment() {
     private lateinit var adapter: FeedAdapter
     private lateinit var recFeed: RecyclerView
     private var item = ArrayList<FeedModel>()
+    var bundle=Bundle()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -59,9 +60,7 @@ class FeedFragment : Fragment() {
                 else{
                     Log.d("isFailed", response.code().toString())
                 }
-
             }
-
             override fun onFailure(call: Call<List<PhotoResponse>>, t: Throwable) {
                 Log.d("onFailure", t.message.toString())
 
@@ -80,7 +79,8 @@ class FeedFragment : Fragment() {
         gridLayoutManager = GridLayoutManager(context, 2)
         recFeed.layoutManager = gridLayoutManager
         adapter = FeedAdapter(context) {
-            findNavController().navigate(R.id.feedDetailFragment)
+            bundle.putString("ImageID", it.id)
+            findNavController().navigate(R.id.feedDetailFragment,bundle)
         }
         recFeed.adapter = adapter
     }

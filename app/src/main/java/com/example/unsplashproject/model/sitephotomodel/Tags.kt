@@ -5,8 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class Tags (
 
-  @SerializedName("type"   ) var type   : String? = null,
-  @SerializedName("title"  ) var title  : String? = null,
-  @SerializedName("source" ) var source : Source? = Source()
+  @SerializedName("custom"     ) var custom     : ArrayList<Custom>     = arrayListOf(),
+  @SerializedName("aggregated" ) var aggregated : ArrayList<Aggregated> = arrayListOf()
 
 )

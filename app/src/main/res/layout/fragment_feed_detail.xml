@@ -47,33 +47,32 @@
         app:cardCornerRadius="16dp">
 
         <ImageView
-            android:id="@+id/feed_iv_detail"
+            android:id="@+id/feed_iv_main_photo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-
             android:contentDescription="@string/feedDetailImg"
-            android:scaleType="centerCrop"
-            android:src="@drawable/animal_dow" />
+            android:scaleType="centerCrop" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_gravity="bottom">
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/feed_iv_detail_profile"
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/feed_iv_profile_photo"
                 android:layout_width="56dp"
                 android:layout_height="56dp"
                 android:layout_gravity="bottom"
                 android:layout_marginStart="12dp"
                 android:layout_marginBottom="12dp"
-                android:background="@drawable/animal_yek"
-                app:shapeAppearance="@style/ShapeAppearanceOverlay."
+                app:civ_border_color="@color/white"
+                app:civ_border_width="1dp"
                 android:contentDescription="@string/feedDetailImgProfile"
                 android:scaleType="centerCrop" />
 
             <TextView
+                android:id="@+id/tv_profile_username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top"

@@ -12,12 +12,10 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.annotation.GlideModule
 import com.example.unsplashproject.R
 import com.example.unsplashproject.adapter.FeedAdapter
-import com.example.unsplashproject.model.feed.FeedModel
 import com.example.unsplashproject.model.response.PhotoResponse
-import com.example.unsplashproject.services.PhotoService
+import com.example.unsplashproject.services.Service
 import com.example.unsplashproject.services.ServiceBuilder
 import retrofit2.Call
 import retrofit2.Response
@@ -53,8 +51,8 @@ class FeedProfileFragment : Fragment() {
 
     }
     private fun callApi() {
-        val photoService= ServiceBuilder.buildService(PhotoService::class.java)
-        val requestCall=photoService.getPhotoDetailById(requireArguments().getString("ImageIDProf")!!)
+        val service= ServiceBuilder.buildService(Service::class.java)
+        val requestCall=service.getPhotoDetailById(requireArguments().getString("ImageIDProf")!!)
         requestCall.enqueue(object :retrofit2.Callback<PhotoResponse>
         {
             override fun onResponse(
@@ -71,10 +69,9 @@ class FeedProfileFragment : Fragment() {
 
                     Glide
                         .with(context!!)
-                        .load(photo.user?.profileImage?.medium)
+                        .load(photo.user?.profileImage?.small)
                         .centerCrop()
                         .into(ivProfile)
-                    //adapterProfile.setupList(photoList)
 
                 }
 
@@ -90,8 +87,8 @@ class FeedProfileFragment : Fragment() {
         })
     }
     private fun callApi2() {
-        val photoService= ServiceBuilder.buildService(PhotoService::class.java)
-        val requestCall=photoService.getUserByUsername(requireArguments().getString("ImageUserNameProf")!!)
+        val service= ServiceBuilder.buildService(Service::class.java)
+        val requestCall=service.getUserByUsername(requireArguments().getString("ImageUserNameProf")!!)
         requestCall.enqueue(object :retrofit2.Callback<List<PhotoResponse>>
         {
             override fun onResponse(

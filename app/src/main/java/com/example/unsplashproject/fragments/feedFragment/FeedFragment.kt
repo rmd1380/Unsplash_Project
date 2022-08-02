@@ -13,7 +13,7 @@ import com.example.unsplashproject.R
 import com.example.unsplashproject.adapter.FeedAdapter
 import com.example.unsplashproject.model.feed.FeedModel
 import com.example.unsplashproject.model.response.PhotoResponse
-import com.example.unsplashproject.services.PhotoService
+import com.example.unsplashproject.services.Service
 import com.example.unsplashproject.services.ServiceBuilder
 import retrofit2.Call
 import retrofit2.Response
@@ -42,8 +42,8 @@ class FeedFragment : Fragment() {
 
     private fun callApi() {
         Log.d("callapiiii", "ApiCall")
-        val photoService= ServiceBuilder.buildService(PhotoService::class.java)
-        val requestCall=photoService.getPhoto()
+        val service= ServiceBuilder.buildService(Service::class.java)
+        val requestCall=service.getPhoto()
         requestCall.enqueue(object :retrofit2.Callback<List<PhotoResponse>>
         {
             override fun onResponse(

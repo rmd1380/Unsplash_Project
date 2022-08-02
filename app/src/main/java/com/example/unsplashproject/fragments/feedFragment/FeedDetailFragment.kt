@@ -12,7 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.unsplashproject.R
 import com.example.unsplashproject.model.response.PhotoResponse
-import com.example.unsplashproject.services.PhotoService
+import com.example.unsplashproject.services.Service
 import com.example.unsplashproject.services.ServiceBuilder
 import retrofit2.Call
 import retrofit2.Response
@@ -54,7 +54,7 @@ class FeedDetailFragment : Fragment() {
     }
 
     private fun callApi() {
-        val photoDetailService= ServiceBuilder.buildService(PhotoService::class.java)
+        val photoDetailService= ServiceBuilder.buildService(Service::class.java)
         val requestCall=photoDetailService.getPhotoDetailById(requireArguments().getString("ImageID")!!)
         requestCall.enqueue(object :retrofit2.Callback<PhotoResponse>
         {
@@ -80,7 +80,7 @@ class FeedDetailFragment : Fragment() {
 
                     Glide
                         .with(context!!)
-                        .load(photoDetail.user?.profileImage?.medium)
+                        .load(photoDetail.user?.profileImage?.small)
                         .centerCrop()
                         .into(ivProfile)
 

@@ -8,9 +8,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.unsplashproject.R
 import com.example.unsplashproject.model.feed.FeedModel
+import com.example.unsplashproject.model.response.PhotoResponse
+import com.example.unsplashproject.model.response.TopicResponse
 import com.example.unsplashproject.model.topic.TopicModel
 
-class TopicAdapter(private val context: Context, private val listItem: ArrayList<TopicModel>,private var callback: (TopicModel) -> Unit) :
+class TopicAdapter(private val context: Context?, private var listItem: List<TopicResponse>?=null, private var callback: (TopicResponse) -> Unit) :
     RecyclerView.Adapter<TopicAdapter.TopicItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TopicItemViewHolder {
@@ -19,21 +21,26 @@ class TopicAdapter(private val context: Context, private val listItem: ArrayList
     }
 
     override fun onBindViewHolder(holder: TopicItemViewHolder, position: Int) {
-        val item=listItem[position]
-        holder.txtTopicItem.text=item.txtItemTopic
+        val item= listItem!![position]
+        holder.txtTopicItem.text=item.slug
         holder.itemView.setOnClickListener {
-            callback.invoke(listItem[position])
+            callback.invoke(listItem!![position])
         }
 
     }
 
     override fun getItemCount(): Int {
-        return listItem.size
+        return listItem?.size ?: 0
     }
 
     class TopicItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val txtTopicItem:TextView=itemView.findViewById(R.id.tv_topic_item)
 
+    }
+    fun setupList(list :List<TopicResponse>?)
+    {
+        this.listItem= list
+        notifyDataSetChanged()
     }
 
 }

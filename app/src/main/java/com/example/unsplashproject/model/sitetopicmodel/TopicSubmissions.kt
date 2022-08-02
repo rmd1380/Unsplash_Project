@@ -1,11 +1,11 @@
-package com.example.example
+package com.example.unsplashproject.model.sitetopicmodel
 
 import com.google.gson.annotations.SerializedName
 
 
 data class TopicSubmissions (
 
-  @SerializedName("street-photography" ) var street-photography : Street-photography? = Street-photography(),
-  @SerializedName("current-events"     ) var current-events     : Current-events?     = Current-events()
+  @SerializedName("street-photography" ) var streetphotography : Streetphotography? = Streetphotography(),
+  @SerializedName("current-events"     ) var currentevents     : Currentevents?     = Currentevents()
 
 )

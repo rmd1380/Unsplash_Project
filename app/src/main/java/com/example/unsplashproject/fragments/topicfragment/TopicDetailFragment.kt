@@ -31,6 +31,7 @@ class TopicDetailFragment : Fragment() {
     private lateinit var tvTopicDescription: TextView
     private lateinit var recTopicDetail: RecyclerView
     private lateinit var adapterTopicDetail: TopicAdapterForPhotos
+    var bundle=Bundle()
     private var item = ArrayList<FeedModel>()
 
     override fun onCreateView(
@@ -112,7 +113,8 @@ class TopicDetailFragment : Fragment() {
         gridLayoutManager = GridLayoutManager(context, 2)
         recTopicDetail.layoutManager = gridLayoutManager
         adapterTopicDetail = TopicAdapterForPhotos(context) {
-            findNavController().navigate(R.id.topicFragment)
+            bundle.putString("ImageID",it.id)
+            findNavController().navigate(R.id.feedDetailFragment,bundle)
         }
         recTopicDetail.adapter = adapterTopicDetail
 

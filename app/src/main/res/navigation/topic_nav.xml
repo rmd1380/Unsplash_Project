@@ -10,13 +10,21 @@
         android:name="com.example.unsplashproject.fragments.topicfragment.TopicFragment"
         android:label="fragment_topic"
         tools:layout="@layout/fragment_topic" >
-        <action
-            android:id="@+id/action_topicFragment_to_topicDetailFragment"
-            app:destination="@id/topicDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/topicDetailFragment"
         android:name="com.example.unsplashproject.fragments.topicfragment.TopicDetailFragment"
         android:label="fragment_topic_detail"
-        tools:layout="@layout/fragment_topic_detail" />
+        tools:layout="@layout/fragment_topic_detail" >
+    </fragment>
+    <fragment
+        android:id="@+id/feedDetailFragment"
+        android:name="com.example.unsplashproject.fragments.feedFragment.FeedDetailFragment"
+        android:label="fragment_feed_detail"
+        tools:layout="@layout/fragment_feed_detail" />
+    <fragment
+        android:id="@+id/feedProfileFragment"
+        android:name="com.example.unsplashproject.fragments.feedFragment.FeedProfileFragment"
+        android:label="fragment_feed_profile"
+        tools:layout="@layout/fragment_feed_profile" />
 </navigation>

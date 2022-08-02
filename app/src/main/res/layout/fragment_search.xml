@@ -47,40 +47,11 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tab_layout"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewpager2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:tabMode="fixed"
-        android:background="@android:color/transparent"
-        app:tabBackground="@android:color/transparent"
-        app:tabGravity="fill"
-        app:tabIndicator="@drawable/shape_round_corner"
-        app:tabIndicatorColor="@color/Secondary_Secondary_500"
-        app:tabIndicatorFullWidth="true"
-        app:tabIndicatorGravity="bottom"
-        app:tabIndicatorHeight="4dp"
-        app:tabRippleColor="@android:color/transparent"
-        app:tabSelectedTextColor="@color/black"
-        app:tabTextAppearance="@style/TextAppearance.AppCompat.Subhead"
-        app:tabTextColor="@color/Dark_Dark_400">
-
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/tab_photos"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:text="@string/photos"/>
-
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/tab_users"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:text="@string/users"/>
-
-    </com.google.android.material.tabs.TabLayout>
+        android:layout_height="match_parent"
+        android:orientation="horizontal" />
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"

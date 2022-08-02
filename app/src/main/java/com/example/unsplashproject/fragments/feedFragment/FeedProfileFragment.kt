@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.unsplashproject.R
-import com.example.unsplashproject.adapter.FeedAdapter
+import com.example.unsplashproject.adapter.PhotosAndFeedAdapter
 import com.example.unsplashproject.model.response.PhotoResponse
 import com.example.unsplashproject.services.Service
 import com.example.unsplashproject.services.ServiceBuilder
@@ -25,7 +25,7 @@ class FeedProfileFragment : Fragment() {
     private lateinit var ivArrowBack:ImageView
     private lateinit var ivProfile:ImageView
     private lateinit var recProfile:RecyclerView
-    private lateinit var adapterProfile:FeedAdapter
+    private lateinit var adapterProfile:PhotosAndFeedAdapter
     private lateinit var profileUserName:TextView
     private lateinit var toolbarUsername:TextView
     private lateinit var profileUserBio:TextView
@@ -119,7 +119,7 @@ class FeedProfileFragment : Fragment() {
     {
         gridLayoutManager = GridLayoutManager(context, 2)
         recProfile.layoutManager = gridLayoutManager
-        adapterProfile= FeedAdapter(context){
+        adapterProfile= PhotosAndFeedAdapter(context){
             bundle.putString("ImageID",it.id)
             findNavController().navigate(R.id.feedDetailFragment,bundle)
         }

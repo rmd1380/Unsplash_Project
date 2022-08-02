@@ -9,12 +9,9 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.unsplashproject.R
 import com.example.unsplashproject.adapter.TopicAdapter
-import com.example.unsplashproject.model.response.PhotoResponse
 import com.example.unsplashproject.model.response.TopicResponse
-import com.example.unsplashproject.model.topic.TopicModel
 import com.example.unsplashproject.services.Service
 import com.example.unsplashproject.services.ServiceBuilder
 import retrofit2.Call

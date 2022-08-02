@@ -10,8 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.unsplashproject.R
-import com.example.unsplashproject.adapter.FeedAdapter
-import com.example.unsplashproject.model.feed.FeedModel
+import com.example.unsplashproject.adapter.PhotosAndFeedAdapter
 import com.example.unsplashproject.model.response.PhotoResponse
 import com.example.unsplashproject.services.Service
 import com.example.unsplashproject.services.ServiceBuilder
@@ -21,9 +20,8 @@ import retrofit2.Response
 class FeedFragment : Fragment() {
 
     private lateinit var gridLayoutManager: GridLayoutManager
-    private lateinit var adapter: FeedAdapter
+    private lateinit var adapter: PhotosAndFeedAdapter
     private lateinit var recFeed: RecyclerView
-    private var item = ArrayList<FeedModel>()
     var bundle=Bundle()
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,7 +39,6 @@ class FeedFragment : Fragment() {
     }
 
     private fun callApi() {
-        Log.d("callapiiii", "ApiCall")
         val service= ServiceBuilder.buildService(Service::class.java)
         val requestCall=service.getPhoto()
         requestCall.enqueue(object :retrofit2.Callback<List<PhotoResponse>>
@@ -78,7 +75,7 @@ class FeedFragment : Fragment() {
     {
         gridLayoutManager = GridLayoutManager(context, 2)
         recFeed.layoutManager = gridLayoutManager
-        adapter = FeedAdapter(context) {
+        adapter = PhotosAndFeedAdapter(context) {
             bundle.putString("ImageID", it.id)
             findNavController().navigate(R.id.feedDetailFragment,bundle)
         }

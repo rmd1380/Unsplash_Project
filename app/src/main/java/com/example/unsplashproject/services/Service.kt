@@ -2,7 +2,6 @@ package com.example.unsplashproject.services
 
 import com.example.unsplashproject.model.response.PhotoResponse
 import com.example.unsplashproject.model.response.TopicResponse
-import com.example.unsplashproject.model.response.TopicResponseForPhotos
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Headers
@@ -31,6 +30,6 @@ interface Service {
 
     @Headers("Authorization: Client-ID xvJiC8gqtS0HJuJrDjQpDe5cWghraEfPnu3Tqh5O81M")
     @GET("topics/{id}/photos")
-    fun getTopicPhotosById(@Path("id") id:String):Call<List<TopicResponseForPhotos>>
+    fun getTopicPhotosById(@Path("id") id:String):Call<List<PhotoResponse>>
 
 }

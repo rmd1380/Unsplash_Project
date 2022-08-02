@@ -22,10 +22,12 @@
         <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/layout/fragment_feed.xml" value="0.2462962962962963" />
         <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/layout/fragment_feed_detail.xml" value="0.20833333333333334" />
         <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/layout/fragment_feed_profile.xml" value="0.259375" />
+        <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/layout/fragment_photo.xml" value="0.259375" />
         <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/layout/fragment_profile.xml" value="0.259375" />
-        <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/layout/fragment_search.xml" value="0.2789473684210526" />
+        <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/layout/fragment_search.xml" value="0.264" />
         <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/layout/fragment_topic.xml" value="0.259375" />
         <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/layout/fragment_topic_detail.xml" value="0.259375" />
+        <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/layout/fragment_user.xml" value="0.259375" />
         <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/layout/snackbar.xml" value="0.264" />
         <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/layout/snackbar_email.xml" value="0.2553846153846154" />
         <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/layout/snackbar_password.xml" value="0.264" />

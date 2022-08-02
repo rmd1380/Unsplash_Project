@@ -4,23 +4,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.get
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.widget.ViewPager2
 import com.example.unsplashproject.R
-import com.example.unsplashproject.adapter.FeedAdapter
-import com.example.unsplashproject.model.feed.FeedModel
+import com.example.unsplashproject.adapter.ViewPagerAdapter
 import com.google.android.material.tabs.TabLayout
-import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
+import com.google.android.material.tabs.TabLayoutMediator
 
 class SearchFragment : Fragment() {
 
-    private lateinit var gridLayoutManager: GridLayoutManager
-    private lateinit var adapterSearch: FeedAdapter
+    private lateinit var adapterSearch: ViewPagerAdapter
     private lateinit var recSearch: RecyclerView
     private lateinit var tabLayout: TabLayout
-    private var item = ArrayList<FeedModel>()
+    private lateinit var viewPager2: ViewPager2
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,41 +36,23 @@ class SearchFragment : Fragment() {
 
     private fun init(view: View) {
         bindView(view)
-        tabLayout.addOnTabSelectedListener(object : OnTabSelectedListener {
-            override fun onTabSelected(tab: TabLayout.Tab) {
-                if(tab.position==0)
-                {
-                    item.clear()
-                    item.add(FeedModel(R.drawable.ic_launcher_background))
-                    item.add(FeedModel(R.drawable.ic_launcher_background))
-                    item.add(FeedModel(R.drawable.ic_launcher_background))
-                    item.add(FeedModel(R.drawable.ic_launcher_background))
-                    gridLayoutManager = GridLayoutManager(context, 2)
-                    recSearch.layoutManager = gridLayoutManager
-                    adapterSearch = FeedAdapter(context){
 
-                    }
-                    recSearch.adapter = adapterSearch
-                }
-                else if (tab.position==1)
-                {
-
-                }
-
+        adapterSearch= ViewPagerAdapter(context!! as FragmentActivity)
+        viewPager2.adapter=adapterSearch
+        TabLayoutMediator(tabLayout,viewPager2){tab,position ->
+            tab.text=when(position)
+            {
+                0->{"Photos"}
+                1->{"Users"}
+                else ->{""}
             }
-            override fun onTabUnselected(tab: TabLayout.Tab) {
-            }
-
-            override fun onTabReselected(tab: TabLayout.Tab) {}
-        })
-
-        tabLayout.selectTab(tabLayout.getTabAt(0))
-
+        }.attach()
     }
 
     private fun bindView(view: View) {
         recSearch = view.findViewById(R.id.rec_search)
         tabLayout = view.findViewById(R.id.tab_layout)
+        viewPager2=view.findViewById(R.id.viewpager2)
     }
 }
 

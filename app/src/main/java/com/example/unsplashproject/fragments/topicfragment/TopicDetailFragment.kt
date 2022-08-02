@@ -13,10 +13,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.unsplashproject.R
-import com.example.unsplashproject.adapter.TopicAdapterForPhotos
-import com.example.unsplashproject.model.feed.FeedModel
+import com.example.unsplashproject.adapter.PhotosAndFeedAdapter
+import com.example.unsplashproject.model.response.PhotoResponse
 import com.example.unsplashproject.model.response.TopicResponse
-import com.example.unsplashproject.model.response.TopicResponseForPhotos
 import com.example.unsplashproject.services.Service
 import com.example.unsplashproject.services.ServiceBuilder
 import retrofit2.Call
@@ -30,9 +29,8 @@ class TopicDetailFragment : Fragment() {
     private lateinit var tvTopic: TextView
     private lateinit var tvTopicDescription: TextView
     private lateinit var recTopicDetail: RecyclerView
-    private lateinit var adapterTopicDetail: TopicAdapterForPhotos
+    private lateinit var adapterTopicDetail: PhotosAndFeedAdapter
     var bundle=Bundle()
-    private var item = ArrayList<FeedModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -86,10 +84,10 @@ class TopicDetailFragment : Fragment() {
     private fun callApiList() {
         val service = ServiceBuilder.buildService(Service::class.java)
         val requestCall = service.getTopicPhotosById(requireArguments().getString("TopicID")!!)
-        requestCall.enqueue(object : retrofit2.Callback<List<TopicResponseForPhotos>> {
+        requestCall.enqueue(object : retrofit2.Callback<List<PhotoResponse>> {
             override fun onResponse(
-                call: Call<List<TopicResponseForPhotos>>,
-                response: Response<List<TopicResponseForPhotos>>
+                call: Call<List<PhotoResponse>>,
+                response: Response<List<PhotoResponse>>
             ) {
                 if (response.isSuccessful) {
                     Log.d("isSuccessful", response.code().toString())
@@ -101,7 +99,7 @@ class TopicDetailFragment : Fragment() {
                 }
             }
 
-            override fun onFailure(call: Call<List<TopicResponseForPhotos>>, t: Throwable) {
+            override fun onFailure(call: Call<List<PhotoResponse>>, t: Throwable) {
                 Log.d("onFailure", t.message.toString())
 
             }
@@ -112,7 +110,7 @@ class TopicDetailFragment : Fragment() {
     private fun setupList() {
         gridLayoutManager = GridLayoutManager(context, 2)
         recTopicDetail.layoutManager = gridLayoutManager
-        adapterTopicDetail = TopicAdapterForPhotos(context) {
+        adapterTopicDetail = PhotosAndFeedAdapter(context) {
             bundle.putString("ImageID",it.id)
             findNavController().navigate(R.id.feedDetailFragment,bundle)
         }

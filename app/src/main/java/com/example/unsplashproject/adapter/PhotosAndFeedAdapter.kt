@@ -10,12 +10,12 @@ import com.bumptech.glide.Glide
 import com.example.unsplashproject.R
 import com.example.unsplashproject.model.response.PhotoResponse
 
-class FeedAdapter(private var context: Context?, private var imgList: List<PhotoResponse>?=null, private var callback: ((PhotoResponse) -> Unit)?) :
-    RecyclerView.Adapter<FeedAdapter.ViewHolder>() {
+class PhotosAndFeedAdapter(private var context: Context?, private var imgList: List<PhotoResponse>?=null, private var callback: ((PhotoResponse) -> Unit)?) :
+    RecyclerView.Adapter<PhotosAndFeedAdapter.ViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.feed_item_design, parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.photo_item_design, parent, false)
         return ViewHolder(view)
     }
 
@@ -37,7 +37,7 @@ class FeedAdapter(private var context: Context?, private var imgList: List<Photo
 
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val img: ImageView = itemView.findViewById(R.id.feed_iv)
+        val img: ImageView = itemView.findViewById(R.id.photo_iv)
     }
     fun setupList(list :List<PhotoResponse>?)
     {

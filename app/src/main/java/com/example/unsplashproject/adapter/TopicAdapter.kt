@@ -1,5 +1,6 @@
 package com.example.unsplashproject.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -7,10 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.unsplashproject.R
-import com.example.unsplashproject.model.feed.FeedModel
-import com.example.unsplashproject.model.response.PhotoResponse
 import com.example.unsplashproject.model.response.TopicResponse
-import com.example.unsplashproject.model.topic.TopicModel
 
 class TopicAdapter(private val context: Context?, private var listItem: List<TopicResponse>?=null, private var callback: (TopicResponse) -> Unit) :
     RecyclerView.Adapter<TopicAdapter.TopicItemViewHolder>() {
@@ -37,6 +35,7 @@ class TopicAdapter(private val context: Context?, private var listItem: List<Top
         val txtTopicItem:TextView=itemView.findViewById(R.id.tv_topic_item)
 
     }
+    @SuppressLint("NotifyDataSetChanged")
     fun setupList(list :List<TopicResponse>?)
     {
         this.listItem= list

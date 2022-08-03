@@ -6,6 +6,7 @@
     <string name="req_for_valid_password">at least 8 character (1..9,a..z)</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="feed">Feed</string>
+    <string name="profile">Profile</string>
     <string name="topics">Topics</string>
     <string name="search">Search</string>
     <string name="search_text">Search Text</string>

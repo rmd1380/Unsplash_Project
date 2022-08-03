@@ -8,21 +8,28 @@
     android:orientation="vertical"
     tools:context=".fragments.searchfragment.SearchFragment">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="56dp">
+        android:layout_height="wrap_content"
+        android:background="@color/white">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/outfit_regular"
-            android:gravity="center"
-            android:text="@string/search"
-            android:textColor="@color/black"
-            android:textSize="14sp" />
-    </androidx.appcompat.widget.Toolbar>
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="56dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/outfit_regular"
+                android:gravity="center"
+                android:text="@string/search"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/et_search"
@@ -30,6 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingStart="16dp"
+        android:paddingTop="26dp"
         android:paddingEnd="16dp"
         app:boxCornerRadiusBottomEnd="8dp"
         app:boxCornerRadiusBottomStart="8dp"
@@ -44,8 +52,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="26dp"
             android:hint="@string/search_text"
-            android:inputType="textEmailAddress"
-            android:imeOptions="actionDone"/>
+            android:imeOptions="actionDone"
+            android:inputType="textEmailAddress" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -53,13 +61,13 @@
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:tabGravity="fill"
         android:layout_marginHorizontal="30dp"
-        app:tabIndicatorHeight="4dp"
+        app:tabGravity="fill"
         app:tabIndicator="@drawable/shape_round_corner"
         app:tabIndicatorColor="@color/Secondary_Secondary_500"
         app:tabIndicatorFullWidth="true"
         app:tabIndicatorGravity="bottom"
+        app:tabIndicatorHeight="4dp"
         app:tabMode="fixed"
         app:tabTextAppearance="@style/TextAppearance.AppCompat.Subhead">
 

@@ -29,7 +29,7 @@ class SearchFragment : Fragment() {
     private var photoFragment=PhotoFragment()
     private var userFragment=UserFragment()
     companion object{
-        var query:String = ""
+        var query:String = "cat"
     }
 
     override fun onCreateView(

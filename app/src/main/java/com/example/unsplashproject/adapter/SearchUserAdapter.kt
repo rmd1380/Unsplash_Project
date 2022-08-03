@@ -13,17 +13,20 @@ import com.example.unsplashproject.R
 import com.example.unsplashproject.model.response.SearchResponse
 import com.example.unsplashproject.model.response.TopicResponse
 import com.example.unsplashproject.model.sitesearchmodel.Results
+import com.example.unsplashproject.model.sitesearchmodel.User
 
 class SearchUserAdapter(private val context: Context?, private var listItem: List<Results>?=null, private var callback: (Results) -> Unit) :
     RecyclerView.Adapter<SearchUserAdapter.TopicItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TopicItemViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.photo_item_design, parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.user_item_design, parent, false)
         return TopicItemViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: TopicItemViewHolder, position: Int) {
         val item= listItem!![position]
+        println("aaaaaabbbbbbb ${item.username}")
+        holder.txt.text=item.name
         Glide
             .with(context!!)
             .load(item.profileImage?.large)
@@ -40,7 +43,8 @@ class SearchUserAdapter(private val context: Context?, private var listItem: Lis
     }
 
     class TopicItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val img: ImageView = itemView.findViewById(R.id.photo_iv)
+        val img: ImageView = itemView.findViewById(R.id.user_iv)
+        val txt:TextView=itemView.findViewById(R.id.tv_user_name)
 
     }
     @SuppressLint("NotifyDataSetChanged")

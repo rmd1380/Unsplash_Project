@@ -71,8 +71,7 @@ class FeedFragment : Fragment() {
 
     }
 
-    private fun setupList()
-    {
+    private fun setupList() {
         gridLayoutManager = GridLayoutManager(context, 2)
         recFeed.layoutManager = gridLayoutManager
         adapter = PhotosAndFeedAdapter(context) {

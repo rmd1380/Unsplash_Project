@@ -36,7 +36,6 @@ class TopicDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         val view = inflater.inflate(R.layout.fragment_topic_detail, container, false)
         init(view)
         return view
@@ -45,6 +44,9 @@ class TopicDetailFragment : Fragment() {
     private fun init(view: View) {
         bindView(view)
         setupList()
+        ivArrowBack.setOnClickListener {
+            findNavController().popBackStack()
+        }
         callApi()
         callApiList()
     }
@@ -92,7 +94,6 @@ class TopicDetailFragment : Fragment() {
                 if (response.isSuccessful) {
                     Log.d("isSuccessful", response.code().toString())
                     val topicList = response.body()!!
-
                     adapterTopicDetail.setupList(topicList)
                 } else {
                     Log.d("isFailed", response.code().toString())
@@ -115,10 +116,6 @@ class TopicDetailFragment : Fragment() {
             findNavController().navigate(R.id.feedDetailFragment,bundle)
         }
         recTopicDetail.adapter = adapterTopicDetail
-
-        ivArrowBack.setOnClickListener {
-            findNavController().popBackStack()
-        }
     }
 
     private fun bindView(view: View) {

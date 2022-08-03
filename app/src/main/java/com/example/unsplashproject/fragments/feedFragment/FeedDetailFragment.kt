@@ -80,7 +80,7 @@ class FeedDetailFragment : Fragment() {
 
                     Glide
                         .with(context!!)
-                        .load(photoDetail.user?.profileImage?.small)
+                        .load(photoDetail.user?.profileImage?.large)
                         .centerCrop()
                         .into(ivProfile)
 

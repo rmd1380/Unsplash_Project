@@ -78,6 +78,7 @@
             android:padding="8dp">
 
             <LinearLayout
+                android:id="@+id/ll_first_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -93,7 +94,6 @@
                     android:src="@drawable/icon_user" />
 
                 <LinearLayout
-                    android:id="@+id/ic_first_name"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="8"
@@ -140,6 +140,7 @@
                 android:paddingHorizontal="16dp" />
 
             <LinearLayout
+                android:id="@+id/ll_last_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -155,7 +156,7 @@
                     android:src="@drawable/icon_user" />
 
                 <LinearLayout
-                    android:id="@+id/ic_last_name"
+
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="8"
@@ -202,6 +203,7 @@
                 android:paddingHorizontal="16dp" />
 
             <LinearLayout
+                android:id="@+id/ll_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -217,7 +219,7 @@
                     android:src="@drawable/icon_mail" />
 
                 <LinearLayout
-                    android:id="@+id/ic_email"
+
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="8"
@@ -264,6 +266,7 @@
                 android:paddingHorizontal="16dp" />
 
             <LinearLayout
+                android:id="@+id/ll_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -279,7 +282,6 @@
                     android:src="@drawable/icon_password" />
 
                 <LinearLayout
-                    android:id="@+id/ic_password"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="8"

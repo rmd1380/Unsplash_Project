@@ -3,10 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/drawable/botrom_sheet_background.xml" value="0.22" />
+        <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/drawable/bottom_sheet_background.xml" value="0.202" />
         <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/drawable/btn_shape.xml" value="0.165" />
         <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/drawable/e_p_shape_design.xml" value="0.1555" />
         <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/drawable/edit_shape.xml" value="0.2115" />
         <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/drawable/et_shape.xml" value="0.165" />
+        <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/drawable/ic_baseline_horizontal_rule_24.xml" value="0.202" />
         <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/drawable/ic_icon_arrowleft.xml" value="0.165" />
         <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/drawable/ic_icons.xml" value="0.2" />
         <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/drawable/icon_arrowleft.xml" value="0.1865" />
@@ -17,6 +20,7 @@
         <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/drawable/line_shape.xml" value="0.2065" />
         <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/drawable/profile_shape.xml" value="0.1575" />
         <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/drawable/shape_round_corner.xml" value="0.1555" />
+        <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/drawable/small_line_for_bottom_sheet.xml" value="0.202" />
         <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/drawable/snackbar_shape.xml" value="0.2065" />
         <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/drawable/topic_item_shape.xml" value="0.2115" />
         <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/layout/activity_login.xml" value="0.24537037037037038" />
@@ -24,9 +28,11 @@
         <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/layout/bottom_sheet_design.xml" value="0.25833333333333336" />
         <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/layout/email_bottom_sheet_design.xml" value="0.259375" />
         <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/layout/feed_item_design.xml" value="0.25833333333333336" />
+        <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/layout/first_name_bottom_sheet_design.xml" value="0.259375" />
         <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/layout/fragment_feed.xml" value="0.264" />
         <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/layout/fragment_feed_detail.xml" value="0.20833333333333334" />
         <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/layout/fragment_feed_profile.xml" value="0.259375" />
+        <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/layout/fragment_first_name_bottom_sheet.xml" value="0.259375" />
         <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/layout/fragment_photo.xml" value="0.259375" />
         <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/layout/fragment_profile.xml" value="0.21842105263157896" />
         <entry key="..\:/KotlinAndroid/UnsplashProject/app/src/main/res/layout/fragment_search.xml" value="0.264" />

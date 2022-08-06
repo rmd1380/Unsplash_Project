@@ -1,4 +1,4 @@
-package com.example.unsplashproject.viewmodels
+package com.example.unsplashproject.viewmodels.feedfragmentviewmodels
 
 
 import androidx.lifecycle.MutableLiveData
@@ -14,28 +14,9 @@ import javax.inject.Inject
 class FeedDetailFragmentViewModel @Inject constructor(private val repository: Repository) :
     ViewModel() {
 
-    private var liveDataPhotoList: MutableLiveData<PhotoResponse?> = MutableLiveData()
+    private var liveDataPhotoUserList: MutableLiveData<PhotoResponse?> = MutableLiveData()
 
     fun getLiveDataObserver(id: String): MutableLiveData<PhotoResponse?> {
         return repository.getPhotoDetailById(id)
     }
-//    fun loadData()
-//    {
-//        viewModelScope.launch {
-//            repository.getPhotoDetailById(,liveDataPhotoList)
-//        }
-//
-//    }
-
-//    fun getLiveDataObserver():MutableLiveData<List<PhotoResponse>>
-//    {
-//        return liveDataPhotoList
-//    }
-//    fun loadListOfData()
-//    {
-//        viewModelScope.launch {
-//            repository.getPhoto()
-//        }
-//
-//    }
 }

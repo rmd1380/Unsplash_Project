@@ -12,6 +12,6 @@ data class TopicResponse(
     @SerializedName("links") var links: Links? = Links(),
     @SerializedName("owners") var owners: ArrayList<Owners> = arrayListOf(),
     @SerializedName("cover_photo") var coverPhoto: CoverPhoto? = CoverPhoto(),
-    @SerializedName("preview_photos") var previewPhotos: ArrayList<PreviewPhotos> = arrayListOf(),
+    @SerializedName("preview_photos") var previewPhotos: List<PreviewPhotos> = arrayListOf()
 
 )

@@ -1,7 +1,6 @@
 package com.example.unsplashproject.fragments.feedFragment
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -16,14 +15,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.unsplashproject.R
 import com.example.unsplashproject.adapter.PhotosAndFeedAdapter
-import com.example.unsplashproject.model.response.PhotoResponse
-import com.example.unsplashproject.services.ServiceApi
-import com.example.unsplashproject.services.ServiceBuilder
-import com.example.unsplashproject.viewmodels.FeedFragmentViewModel
-import com.example.unsplashproject.viewmodels.FeedProfileFragmentViewModel
+import com.example.unsplashproject.viewmodels.feedfragmentviewmodels.FeedProfileFragmentViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import retrofit2.Call
-import retrofit2.Response
 
 @AndroidEntryPoint
 class FeedProfileFragment : Fragment() {

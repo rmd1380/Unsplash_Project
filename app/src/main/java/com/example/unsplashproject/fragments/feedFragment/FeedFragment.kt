@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.unsplashproject.R
 import com.example.unsplashproject.adapter.PhotosAndFeedAdapter
-import com.example.unsplashproject.viewmodels.FeedFragmentViewModel
+import com.example.unsplashproject.viewmodels.feedfragmentviewmodels.FeedFragmentViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -48,7 +48,6 @@ class FeedFragment : Fragment() {
                 Toast.makeText(context, "Error in getting data", Toast.LENGTH_SHORT).show()
             }
         }
-        viewModel.loadListOfData()
     }
 
     private fun bindView(view: View) {

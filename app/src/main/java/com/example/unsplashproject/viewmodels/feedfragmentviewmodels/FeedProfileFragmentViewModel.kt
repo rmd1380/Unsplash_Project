@@ -1,4 +1,4 @@
-package com.example.unsplashproject.viewmodels
+package com.example.unsplashproject.viewmodels.feedfragmentviewmodels
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData

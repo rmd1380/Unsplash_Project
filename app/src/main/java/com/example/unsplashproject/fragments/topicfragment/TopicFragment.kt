@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -14,9 +16,14 @@ import com.example.unsplashproject.adapter.TopicAdapter
 import com.example.unsplashproject.model.response.TopicResponse
 import com.example.unsplashproject.services.ServiceApi
 import com.example.unsplashproject.services.ServiceBuilder
+import com.example.unsplashproject.viewmodels.feedfragmentviewmodels.FeedFragmentViewModel
+import com.example.unsplashproject.viewmodels.topicfragmentviewmodels.TopicFragmentViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.scopes.ActivityScoped
 import retrofit2.Call
 import retrofit2.Response
 
+@AndroidEntryPoint
 class TopicFragment : Fragment() {
 
     private lateinit var gridLayoutManager: GridLayoutManager
@@ -39,40 +46,25 @@ class TopicFragment : Fragment() {
     private fun init(view: View) {
         bindView(view)
         setupList()
-        callApi()
+        viewModel()
     }
 
+    private fun viewModel() {
+        val viewModel: TopicFragmentViewModel = ViewModelProvider(this)[TopicFragmentViewModel::class.java]
+        viewModel.getLiveDataObserver().observe(viewLifecycleOwner) {
+            if (it != null) {
+                adapter.setupList(it)
+                adapter.notifyDataSetChanged()
+            } else {
+                Toast.makeText(context, "Error in getting data", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
     private fun bindView(view: View) {
         recTopic = view.findViewById(R.id.rec_topic)
 
     }
-    private fun callApi() {
-        val serviceApi= ServiceBuilder.buildService(ServiceApi::class.java)
-        val requestCall=serviceApi.getTopic()
-        requestCall.enqueue(object :retrofit2.Callback<List<TopicResponse>>
-        {
-            override fun onResponse(
-                call: Call<List<TopicResponse>>,
-                response: Response<List<TopicResponse>>
-            ) {
-                if(response.isSuccessful)
-                {
-                    Log.d("isSuccessful", response.code().toString())
-                    val topicList = response.body()!!
-                    adapter.setupList(topicList)
-                }
 
-                else{
-                    Log.d("isFailed", response.code().toString())
-                }
-            }
-            override fun onFailure(call: Call<List<TopicResponse>>, t: Throwable) {
-                Log.d("onFailure", t.message.toString())
-
-            }
-
-        })
-    }
 
     private fun setupList()
     {
@@ -87,3 +79,31 @@ class TopicFragment : Fragment() {
 
     }
 }
+
+//private fun callApi() {
+//    val serviceApi= ServiceBuilder.buildService(ServiceApi::class.java)
+//    val requestCall=serviceApi.getTopic()
+//    requestCall.enqueue(object :retrofit2.Callback<List<TopicResponse>>
+//    {
+//        override fun onResponse(
+//            call: Call<List<TopicResponse>>,
+//            response: Response<List<TopicResponse>>
+//        ) {
+//            if(response.isSuccessful)
+//            {
+//                Log.d("isSuccessful", response.code().toString())
+//                val topicList = response.body()!!
+//                adapter.setupList(topicList)
+//            }
+//
+//            else{
+//                Log.d("isFailed", response.code().toString())
+//            }
+//        }
+//        override fun onFailure(call: Call<List<TopicResponse>>, t: Throwable) {
+//            Log.d("onFailure", t.message.toString())
+//
+//        }
+//
+//    })
+//}

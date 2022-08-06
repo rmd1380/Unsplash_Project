@@ -6,14 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.*
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.unsplashproject.R
 import com.example.unsplashproject.adapter.ViewPagerAdapter
+import com.example.unsplashproject.viewmodels.searchviewmodels.PhotoSearchViewModel
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.android.material.textfield.TextInputEditText
@@ -26,11 +25,8 @@ class SearchFragment : Fragment() {
     private lateinit var tabLayout: TabLayout
     private lateinit var viewPager2: ViewPager2
     private lateinit var etSearch: TextInputLayout
-    private var photoFragment=PhotoFragment()
-    private var userFragment=UserFragment()
-    companion object{
-        var query:String = "cat"
-    }
+    private val viewModel: PhotoSearchViewModel by activityViewModels()
+    var query:String = "cat"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -65,8 +61,7 @@ class SearchFragment : Fragment() {
         etSearch.editText?.setOnEditorActionListener { textView, i, event ->
             if (i == EditorInfo.IME_ACTION_DONE) {
                 query = etSearch.editText?.text.toString()
-                photoFragment.callApiPhoto()
-                userFragment.callApiUser()
+                viewModel.mQuery.postValue(query)
                 false
             } else {
                 true

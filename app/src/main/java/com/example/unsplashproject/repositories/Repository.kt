@@ -3,7 +3,9 @@ package com.example.unsplashproject.repositories
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.unsplashproject.model.response.PhotoResponse
+import com.example.unsplashproject.model.response.SearchResponse
 import com.example.unsplashproject.model.response.TopicResponse
+import com.example.unsplashproject.model.sitesearchmodel.Results
 import com.example.unsplashproject.services.ServiceApi
 import dagger.hilt.android.scopes.ActivityScoped
 import retrofit2.Call
@@ -20,6 +22,7 @@ class Repository @Inject constructor(private val api: ServiceApi) {
     private val liveDataTopicList: MutableLiveData<List<TopicResponse>?> = MutableLiveData()
     private val liveDataTopic: MutableLiveData<TopicResponse?> = MutableLiveData()
     private val liveDataTopicPhotos: MutableLiveData<List<PhotoResponse>?> = MutableLiveData()
+    private val liveDataSearchPhotos: MutableLiveData<SearchResponse?> = MutableLiveData()
 
     fun getPhoto(): MutableLiveData<List<PhotoResponse>?> {
         val call: Call<List<PhotoResponse>> = api.getPhoto()
@@ -125,6 +128,24 @@ class Repository @Inject constructor(private val api: ServiceApi) {
 
         })
         return liveDataTopicPhotos
+    }
+    fun getPhotosBySearch(query:String): MutableLiveData<SearchResponse?>
+    {
+        val call :Call<SearchResponse> = api.getPhotosBySearch(query)
+        call.enqueue(object :Callback<SearchResponse>{
+            override fun onResponse(
+                call: Call<SearchResponse>,
+                response: Response<SearchResponse>
+            ) {
+                liveDataSearchPhotos.postValue(response.body())
+            }
+
+            override fun onFailure(call: Call<SearchResponse>, t: Throwable) {
+                liveDataSearchPhotos.postValue(null)
+                Log.d("onFailureSearch", t.message.toString())
+            }
+        })
+        return liveDataSearchPhotos
     }
 
 }

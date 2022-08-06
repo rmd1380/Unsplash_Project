@@ -5,6 +5,7 @@ import com.example.unsplashproject.model.response.SearchResponse
 import com.example.unsplashproject.model.response.TopicResponse
 import com.example.unsplashproject.model.sitephotomodel.Photos
 import com.example.unsplashproject.model.sitephotomodel.User
+import com.example.unsplashproject.model.sitesearchmodel.Results
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Headers

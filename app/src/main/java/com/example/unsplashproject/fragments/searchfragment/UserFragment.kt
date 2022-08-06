@@ -18,11 +18,10 @@ import retrofit2.Response
 
 class UserFragment : Fragment() {
 
-    companion object{
-         lateinit var gridLayoutManager: GridLayoutManager
-         lateinit var recUser: RecyclerView
-         lateinit var adapter: SearchUserAdapter
-    }
+    lateinit var gridLayoutManager: GridLayoutManager
+    lateinit var recUser: RecyclerView
+    lateinit var adapter: SearchUserAdapter
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,32 +30,12 @@ class UserFragment : Fragment() {
         init(view)
         return view
     }
+
     private fun init(view: View) {
         bindView(view)
         setupList()
-        callApiUser()
     }
-    fun callApiUser() {
-        val serviceApi = ServiceBuilder.buildService(ServiceApi::class.java)
-        val requestCall = serviceApi.getUsersBySearch(SearchFragment.query)
-        requestCall.enqueue(object : retrofit2.Callback<SearchResponse> {
-            override fun onResponse(
-                call: Call<SearchResponse>,
-                response: Response<SearchResponse>
-            ) {
-                if (response.isSuccessful) {
-                    Log.d("isSuccessful", response.code().toString())
-                    val userList = response.body()!!
-                    adapter.setupList(userList.results)
-                } else {
-                    Log.d("isFailed", response.code().toString())
-                }
-            }
-            override fun onFailure(call: Call<SearchResponse>, t: Throwable) {
-                Log.d("onFailure", t.message.toString())
-            }
-        })
-    }
+
 
     private fun bindView(view: View) {
         recUser = view.findViewById(R.id.rec_user)
@@ -71,3 +50,26 @@ class UserFragment : Fragment() {
     }
 
 }
+
+
+//fun callApiUser() {
+//    val serviceApi = ServiceBuilder.buildService(ServiceApi::class.java)
+//    val requestCall = serviceApi.getUsersBySearch(SearchFragment.query)
+//    requestCall.enqueue(object : retrofit2.Callback<SearchResponse> {
+//        override fun onResponse(
+//            call: Call<SearchResponse>,
+//            response: Response<SearchResponse>
+//        ) {
+//            if (response.isSuccessful) {
+//                Log.d("isSuccessful", response.code().toString())
+//                val userList = response.body()!!
+//                UserFragment.adapter.setupList(userList.results)
+//            } else {
+//                Log.d("isFailed", response.code().toString())
+//            }
+//        }
+//        override fun onFailure(call: Call<SearchResponse>, t: Throwable) {
+//            Log.d("onFailure", t.message.toString())
+//        }
+//    })
+//}

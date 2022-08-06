@@ -25,7 +25,6 @@ class SearchUserAdapter(private val context: Context?, private var listItem: Lis
 
     override fun onBindViewHolder(holder: TopicItemViewHolder, position: Int) {
         val item= listItem!![position]
-        println("aaaaaabbbbbbb ${item.username}")
         holder.txt.text=item.name
         Glide
             .with(context!!)

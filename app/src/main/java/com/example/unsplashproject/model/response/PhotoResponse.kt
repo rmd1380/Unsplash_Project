@@ -22,7 +22,6 @@ data class PhotoResponse(
     @SerializedName("views") var views: Int? = null,
     @SerializedName("downloads") var downloads: Int? = null,
 
-
     @SerializedName("username") var username: String? = null,
     @SerializedName("name") var name: String? = null,
     @SerializedName("first_name") var firstName: String? = null,
@@ -30,5 +29,5 @@ data class PhotoResponse(
     @SerializedName("bio") var bio: String? = null,
     @SerializedName("profile_image") var profileImage: ProfileImage? = ProfileImage(),
     @SerializedName("social") var social: Social? = Social(),
-    @SerializedName("photos") var photos: ArrayList<Photos> = arrayListOf(),
+    @SerializedName("photos") var photos: Photos? =Photos()
 )

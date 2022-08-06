@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.unsplashproject.R
 import com.example.unsplashproject.adapter.TopicAdapter
 import com.example.unsplashproject.model.response.TopicResponse
-import com.example.unsplashproject.services.Service
+import com.example.unsplashproject.services.ServiceApi
 import com.example.unsplashproject.services.ServiceBuilder
 import retrofit2.Call
 import retrofit2.Response
@@ -47,8 +47,8 @@ class TopicFragment : Fragment() {
 
     }
     private fun callApi() {
-        val service= ServiceBuilder.buildService(Service::class.java)
-        val requestCall=service.getTopic()
+        val serviceApi= ServiceBuilder.buildService(ServiceApi::class.java)
+        val requestCall=serviceApi.getTopic()
         requestCall.enqueue(object :retrofit2.Callback<List<TopicResponse>>
         {
             override fun onResponse(

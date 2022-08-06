@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.unsplashproject.R
 import com.example.unsplashproject.model.response.PhotoResponse
+import com.example.unsplashproject.model.sitephotomodel.Photos
 
 class PhotosAndFeedAdapter(private var context: Context?, private var imgList: List<PhotoResponse>?=null, private var callback: ((PhotoResponse) -> Unit)?) :
     RecyclerView.Adapter<PhotosAndFeedAdapter.ViewHolder>() {

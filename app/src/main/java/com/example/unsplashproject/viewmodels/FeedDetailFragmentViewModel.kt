@@ -11,19 +11,31 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class FeedFragmentViewModel @Inject constructor(private val repository: Repository) : ViewModel() {
+class FeedDetailFragmentViewModel @Inject constructor(private val repository: Repository) :
+    ViewModel() {
 
-    private var liveDataPhotoList: MutableLiveData<List<PhotoResponse>> = MutableLiveData()
+    private var liveDataPhotoList: MutableLiveData<PhotoResponse?> = MutableLiveData()
 
-    fun getLiveDataObserver():MutableLiveData<List<PhotoResponse>>
-    {
-        return liveDataPhotoList
+    fun getLiveDataObserver(id: String): MutableLiveData<PhotoResponse?> {
+        return repository.getPhotoDetailById(id)
     }
-    fun loadListOfData()
-    {
-        viewModelScope.launch {
-            repository.getPhoto(liveDataPhotoList)
-        }
+//    fun loadData()
+//    {
+//        viewModelScope.launch {
+//            repository.getPhotoDetailById(,liveDataPhotoList)
+//        }
+//
+//    }
 
-    }
+//    fun getLiveDataObserver():MutableLiveData<List<PhotoResponse>>
+//    {
+//        return liveDataPhotoList
+//    }
+//    fun loadListOfData()
+//    {
+//        viewModelScope.launch {
+//            repository.getPhoto()
+//        }
+//
+//    }
 }

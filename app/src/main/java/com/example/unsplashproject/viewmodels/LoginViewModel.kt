@@ -1,4 +1,4 @@
-package com.example.unsplashproject.viewmodel
+package com.example.unsplashproject.viewmodels
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

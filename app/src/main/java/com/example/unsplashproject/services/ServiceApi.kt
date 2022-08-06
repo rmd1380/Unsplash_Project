@@ -11,18 +11,18 @@ import retrofit2.http.Headers
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-interface Service {
+interface ServiceApi {
     @Headers("Authorization: Client-ID xvJiC8gqtS0HJuJrDjQpDe5cWghraEfPnu3Tqh5O81M")
     @GET("photos")
-    fun getPhoto(): PhotoResponse<List<Photos>>
+    fun getPhoto(): Call<List<PhotoResponse>>
 
     @Headers("Authorization: Client-ID xvJiC8gqtS0HJuJrDjQpDe5cWghraEfPnu3Tqh5O81M")
-    @GET("photos/{id}")
-    fun getPhotoDetailById(@Path("id")id:String): Call<PhotoResponse<Photos>>
+    @GET("/photos/{id}")
+    fun getPhotoDetailById(@Path("id")id:String): Call<PhotoResponse>
 
     @Headers("Authorization: Client-ID xvJiC8gqtS0HJuJrDjQpDe5cWghraEfPnu3Tqh5O81M")
     @GET("users/{username}/photos")
-    fun getUserByUsername(@Path("username")username:String): Call<List<PhotoResponse<User>>>
+    fun getUserByUsername(@Path("username")username:String): Call<List<PhotoResponse>>
 
     @Headers("Authorization: Client-ID xvJiC8gqtS0HJuJrDjQpDe5cWghraEfPnu3Tqh5O81M")
     @GET("topics")
@@ -34,7 +34,7 @@ interface Service {
 
     @Headers("Authorization: Client-ID xvJiC8gqtS0HJuJrDjQpDe5cWghraEfPnu3Tqh5O81M")
     @GET("topics/{id}/photos")
-    fun getTopicPhotosById(@Path("id") id:String):Call<List<PhotoResponse<Photos>>>
+    fun getTopicPhotosById(@Path("id") id:String):Call<List<PhotoResponse>>
 
     @Headers("Authorization: Client-ID xvJiC8gqtS0HJuJrDjQpDe5cWghraEfPnu3Tqh5O81M")
     @GET("search/photos")

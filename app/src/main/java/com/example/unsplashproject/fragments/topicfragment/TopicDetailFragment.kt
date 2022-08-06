@@ -16,7 +16,7 @@ import com.example.unsplashproject.R
 import com.example.unsplashproject.adapter.PhotosAndFeedAdapter
 import com.example.unsplashproject.model.response.PhotoResponse
 import com.example.unsplashproject.model.response.TopicResponse
-import com.example.unsplashproject.services.Service
+import com.example.unsplashproject.services.ServiceApi
 import com.example.unsplashproject.services.ServiceBuilder
 import retrofit2.Call
 import retrofit2.Response
@@ -48,12 +48,12 @@ class TopicDetailFragment : Fragment() {
             findNavController().popBackStack()
         }
         callApi()
-        callApiList()
+        //callApiList()
     }
 
     private fun callApi() {
-        val service = ServiceBuilder.buildService(Service::class.java)
-        val requestCall = service.getTopicDetailById(requireArguments().getString("TopicID")!!)
+        val serviceApi = ServiceBuilder.buildService(ServiceApi::class.java)
+        val requestCall = serviceApi.getTopicDetailById(requireArguments().getString("TopicID")!!)
         requestCall.enqueue(object : retrofit2.Callback<TopicResponse> {
             override fun onResponse(
                 call: Call<TopicResponse>,
@@ -83,30 +83,30 @@ class TopicDetailFragment : Fragment() {
 
         })
     }
-    private fun callApiList() {
-        val service = ServiceBuilder.buildService(Service::class.java)
-        val requestCall = service.getTopicPhotosById(requireArguments().getString("TopicID")!!)
-        requestCall.enqueue(object : retrofit2.Callback<List<PhotoResponse>> {
-            override fun onResponse(
-                call: Call<List<PhotoResponse>>,
-                response: Response<List<PhotoResponse>>
-            ) {
-                if (response.isSuccessful) {
-                    Log.d("isSuccessful", response.code().toString())
-                    val topicList = response.body()!!
-                    adapterTopicDetail.setupList(topicList)
-                } else {
-                    Log.d("isFailed", response.code().toString())
-                }
-            }
-
-            override fun onFailure(call: Call<List<PhotoResponse>>, t: Throwable) {
-                Log.d("onFailure", t.message.toString())
-
-            }
-
-        })
-    }
+//    private fun callApiList() {
+//        val serviceApi = ServiceBuilder.buildService(ServiceApi::class.java)
+//        val requestCall = serviceApi.getTopicPhotosById(requireArguments().getString("TopicID")!!)
+//        requestCall.enqueue(object : retrofit2.Callback<List<PhotoResponse>> {
+//            override fun onResponse(
+//                call: Call<List<PhotoResponse>>,
+//                response: Response<List<PhotoResponse>>
+//            ) {
+//                if (response.isSuccessful) {
+//                    Log.d("isSuccessful", response.code().toString())
+//                    val topicList = response.body()!!
+//                    adapterTopicDetail.setupList(topicList)
+//                } else {
+//                    Log.d("isFailed", response.code().toString())
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<List<PhotoResponse>>, t: Throwable) {
+//                Log.d("onFailure", t.message.toString())
+//
+//            }
+//
+//        })
+//    }
 
     private fun setupList() {
         gridLayoutManager = GridLayoutManager(context, 2)

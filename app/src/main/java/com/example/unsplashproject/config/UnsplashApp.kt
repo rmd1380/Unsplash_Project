@@ -1,4 +1,9 @@
 package com.example.unsplashproject.config
 
-class UnsplashApp {
+import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
+
+@HiltAndroidApp
+class UnsplashApp : Application() {
+    
 }

@@ -6,17 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.unsplashproject.R
-import com.example.unsplashproject.adapter.PhotosAndFeedAdapter
-import com.example.unsplashproject.adapter.SearchPhotoAdapter
 import com.example.unsplashproject.adapter.SearchUserAdapter
-import com.example.unsplashproject.model.response.PhotoResponse
 import com.example.unsplashproject.model.response.SearchResponse
-import com.example.unsplashproject.model.sitesearchmodel.User
-import com.example.unsplashproject.services.Service
+import com.example.unsplashproject.services.ServiceApi
 import com.example.unsplashproject.services.ServiceBuilder
 import retrofit2.Call
 import retrofit2.Response
@@ -42,8 +37,8 @@ class UserFragment : Fragment() {
         callApiUser()
     }
     fun callApiUser() {
-        val service = ServiceBuilder.buildService(Service::class.java)
-        val requestCall = service.getUsersBySearch(SearchFragment.query)
+        val serviceApi = ServiceBuilder.buildService(ServiceApi::class.java)
+        val requestCall = serviceApi.getUsersBySearch(SearchFragment.query)
         requestCall.enqueue(object : retrofit2.Callback<SearchResponse> {
             override fun onResponse(
                 call: Call<SearchResponse>,

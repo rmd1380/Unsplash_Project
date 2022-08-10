@@ -20,13 +20,13 @@ interface ServiceApi {
     suspend fun getUserByUsername(@Path("username") username: String): Response<List<PhotoResponse>>
 
     @GET("topics")
-    fun getTopic(): Call<List<TopicResponse>>
+    suspend fun getTopic(): Response<List<TopicResponse>>
 
     @GET("topics/{id}")
-    fun getTopicDetailById(@Path("id") id: String): Call<TopicResponse>
+    suspend fun getTopicDetailById(@Path("id") id: String): Response<TopicResponse>
 
     @GET("topics/{id}/photos")
-    fun getTopicPhotosById(@Path("id") id: String): Call<List<PhotoResponse>>
+    suspend fun getTopicPhotosById(@Path("id") id: String): Response<List<PhotoResponse>>
 
     @GET("search/photos")
     fun getPhotosBySearch(@Query("query") query: String): Call<SearchResponse>

@@ -1,28 +1,18 @@
 package com.example.unsplashproject.fragments.searchfragment
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.unsplashproject.R
 import com.example.unsplashproject.adapter.SearchPhotoAdapter
-import com.example.unsplashproject.model.response.SearchResponse
-import com.example.unsplashproject.services.ServiceApi
-import com.example.unsplashproject.services.ServiceBuilder
-import com.example.unsplashproject.viewmodels.feedfragmentviewmodels.FeedDetailFragmentViewModel
-import com.example.unsplashproject.viewmodels.searchviewmodels.PhotoSearchViewModel
+import com.example.unsplashproject.viewmodels.searchviewmodels.SearchViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import retrofit2.Call
-import retrofit2.Response
 
 @AndroidEntryPoint
 class PhotoFragment : Fragment() {
@@ -31,7 +21,7 @@ class PhotoFragment : Fragment() {
     lateinit var gridLayoutManager: GridLayoutManager
     lateinit var recPhoto: RecyclerView
     lateinit var adapter: SearchPhotoAdapter
-    private val viewModel: PhotoSearchViewModel by activityViewModels()
+    private val viewModel: SearchViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,28 +29,23 @@ class PhotoFragment : Fragment() {
     ): View {
         val view = inflater.inflate(R.layout.fragment_photo, container, false)
         init(view)
-        //////////////
-
-        viewModel.mQuery.observe(viewLifecycleOwner){
-            viewModel(it)
-        }
-
-        ////////////////////////
         return view
     }
 
     private fun init(view: View) {
         bindView(view)
         setupList()
-//        viewModel()
+        viewModel.mQuery.observe(viewLifecycleOwner){
+            viewModel(it)
+        }
     }
 
     private fun viewModel(query: String) {
 
         println("qqqqqqqqqqqqqqqqqq $query")
-        viewModel.getLiveDataObserver(query).observe(viewLifecycleOwner) {
+        viewModel.getLiveDataObserverPhoto(query).observe(viewLifecycleOwner) {
             println("itititi $it")
-            if (it != null) {
+            if (it?.results != null) {
                 adapter.setupList(it.results)
             } else {
                 Toast.makeText(context, "Error in getting data", Toast.LENGTH_SHORT).show()

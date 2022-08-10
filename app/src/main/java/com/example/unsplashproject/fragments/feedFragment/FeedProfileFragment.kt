@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -15,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.unsplashproject.R
 import com.example.unsplashproject.adapter.PhotosAndFeedAdapter
+import com.example.unsplashproject.services.Resource
+import com.example.unsplashproject.viewmodels.feedfragmentviewmodels.FeedDetailFragmentViewModel
 import com.example.unsplashproject.viewmodels.feedfragmentviewmodels.FeedProfileFragmentViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -29,6 +32,7 @@ class FeedProfileFragment : Fragment() {
     private lateinit var toolbarUsername: TextView
     private lateinit var profileUserBio: TextView
     var bundle = Bundle()
+    private val viewModel: FeedProfileFragmentViewModel by activityViewModels()
 
     //private var photoList=ArrayList<PhotoResponse>()
     override fun onCreateView(
@@ -51,39 +55,46 @@ class FeedProfileFragment : Fragment() {
     }
 
     private fun viewModel() {
-        val viewModel: FeedProfileFragmentViewModel =
-            ViewModelProvider(this)[FeedProfileFragmentViewModel::class.java]
-        viewModel.getLiveDataObserver(requireArguments().getString("ImageIDProf")!!)
-            .observe(viewLifecycleOwner) {
-                if (it != null) {
-                    profileUserName.text=it.user?.username
-                    toolbarUsername.text=it.user?.username
-                    profileUserBio.text=it.user?.bio
+        viewModel.getLiveDataObserverPhotoDetail(requireArguments().getString("ImageIDProf")!!)
+            .observe(viewLifecycleOwner)
+            {
+                when (it) {
+                    is Resource.Loading -> {
 
-                    Glide
-                        .with(context!!)
-                        .load(it.user?.profileImage?.large)
-                        .centerCrop()
-                        .into(ivProfile)
-
-                } else {
-                    Toast.makeText(context, "Error in getting data", Toast.LENGTH_SHORT).show()
+                    }
+                    is Resource.Success -> {
+                        profileUserName.text = it.data?.user?.username
+                        toolbarUsername.text = it.data?.user?.username
+                        profileUserBio.text = it.data?.user?.bio
+                        Glide
+                            .with(context!!)
+                            .load(it.data?.user?.profileImage?.large)
+                            .centerCrop()
+                            .into(ivProfile)
+                    }
+                    is Resource.Error -> {
+                        Toast.makeText(context, "Error in getting data", Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
 
-        viewModel.loadListOfData(requireArguments().getString("ImageUserNameProf")!!).observe(viewLifecycleOwner)
-        {
-            if (it != null) {
-                println("itttttt ${it}")
-                adapterProfile.setupList(it)
-                adapterProfile.notifyDataSetChanged()
-            } else {
-                Toast.makeText(context, "Error in getting data", Toast.LENGTH_SHORT).show()
+        viewModel.getLiveDataObserverUserPhotoList(requireArguments().getString("ImageUserNameProf")!!)
+            .observe(viewLifecycleOwner)
+            {
+                when (it) {
+                    is Resource.Loading -> {
+
+                    }
+                    is Resource.Success -> {
+                        adapterProfile.setupList(it.data)
+                        adapterProfile.notifyDataSetChanged()
+                    }
+                    is Resource.Error -> {
+                        Toast.makeText(context, "Error in getting data", Toast.LENGTH_SHORT).show()
+                    }
+                }
             }
-
-        }
     }
-
 
     private fun setupList() {
         gridLayoutManager = GridLayoutManager(context, 2)
@@ -104,72 +115,5 @@ class FeedProfileFragment : Fragment() {
         toolbarUsername = view.findViewById(R.id.toolbar_username)
         profileUserBio = view.findViewById(R.id.profile_bio)
     }
-
-
 }
 
-
-//    private fun callApi() {
-//        val serviceApi= ServiceBuilder.buildService(ServiceApi::class.java)
-//        val requestCall=serviceApi.getPhotoDetailById(requireArguments().getString("ImageIDProf")!!)
-//        requestCall.enqueue(object :retrofit2.Callback<PhotoResponse>
-//        {
-//            override fun onResponse(
-//                call: Call<PhotoResponse>,
-//                response: Response<PhotoResponse>
-//            ) {
-//                if(response.isSuccessful)
-//                {
-//                    Log.d("isSuccessful", response.code().toString())
-//                    val photo = response.body()!!
-//                    profileUserName.text=photo.user?.username
-//                    toolbarUsername.text=photo.user?.username
-//                    profileUserBio.text=photo.user?.bio
-//
-//                    Glide
-//                        .with(context!!)
-//                        .load(photo.user?.profileImage?.small)
-//                        .centerCrop()
-//                        .into(ivProfile)
-//
-//                }
-//
-//                else{
-//                    Log.d("isFailed", response.code().toString())
-//                }
-//            }
-//            override fun onFailure(call: Call<PhotoResponse>, t: Throwable) {
-//                Log.d("onFailure", t.message.toString())
-//
-//            }
-//
-//        })
-//    }
-//    private fun callApi2() {
-//        val serviceApi= ServiceBuilder.buildService(ServiceApi::class.java)
-//        val requestCall=serviceApi.getUserByUsername(requireArguments().getString("ImageUserNameProf")!!)
-//        requestCall.enqueue(object :retrofit2.Callback<List<PhotoResponse>>
-//        {
-//            override fun onResponse(
-//                call: Call<List<PhotoResponse>>,
-//                response: Response<List<PhotoResponse>>
-//            ) {
-//                if(response.isSuccessful)
-//                {
-//                    Log.d("isSuccessful", response.code().toString())
-//                    val photoList = response.body()!!
-//                    adapterProfile.setupList(photoList)
-//
-//                }
-//
-//                else{
-//                    Log.d("isFailed", response.code().toString())
-//                }
-//            }
-//            override fun onFailure(call: Call<List<PhotoResponse>>, t: Throwable) {
-//                Log.d("onFailure", t.message.toString())
-//
-//            }
-//
-//        })
-//    }

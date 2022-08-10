@@ -1,21 +1,18 @@
 package com.example.unsplashproject.fragments.searchfragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import androidx.fragment.app.*
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.unsplashproject.R
 import com.example.unsplashproject.adapter.ViewPagerAdapter
-import com.example.unsplashproject.viewmodels.searchviewmodels.PhotoSearchViewModel
+import com.example.unsplashproject.viewmodels.searchviewmodels.SearchViewModel
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
 class SearchFragment : Fragment() {
@@ -25,7 +22,7 @@ class SearchFragment : Fragment() {
     private lateinit var tabLayout: TabLayout
     private lateinit var viewPager2: ViewPager2
     private lateinit var etSearch: TextInputLayout
-    private val viewModel: PhotoSearchViewModel by activityViewModels()
+    private val viewModel: SearchViewModel by activityViewModels()
     var query:String = "cat"
 
     override fun onCreateView(

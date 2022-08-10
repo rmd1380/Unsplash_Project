@@ -1,31 +1,39 @@
 package com.example.unsplashproject.viewmodels.feedfragmentviewmodels
 
-import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.unsplashproject.model.response.PhotoResponse
-import com.example.unsplashproject.repositories.Repository
-import com.example.unsplashproject.services.ServiceApi
+import com.example.unsplashproject.repositories.RepositoryFeed
+import com.example.unsplashproject.services.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import javax.inject.Inject
 
 @HiltViewModel
-class FeedProfileFragmentViewModel @Inject constructor(private val repository: Repository) :
+class FeedProfileFragmentViewModel @Inject constructor(private val repositoryFeed: RepositoryFeed) :
     ViewModel() {
 
-    private var liveDataPhotoList: MutableLiveData<List<PhotoResponse>?> = MutableLiveData()
+    private var mPhotoDetail = MutableLiveData<Resource<PhotoResponse>>()
+    private var mUserPhotoList = MutableLiveData<Resource<List<PhotoResponse>>>()
 
-    fun getLiveDataObserver(id: String): MutableLiveData<PhotoResponse?> {
-        return repository.getPhotoDetailById(id)
+    fun getLiveDataObserverPhotoDetail(id: String): LiveData<Resource<PhotoResponse>> {
+        viewModelScope.launch {
+            mPhotoDetail.postValue(Resource.Loading())
+
+            mPhotoDetail.postValue(repositoryFeed.getPhotoDetailById(id))
+        }
+        return mPhotoDetail
     }
 
-    fun loadListOfData(userName: String): MutableLiveData<List<PhotoResponse>?> {
-        return repository.getUserByUsername(userName)
+    fun getLiveDataObserverUserPhotoList(id: String): LiveData<Resource<List<PhotoResponse>>> {
+        viewModelScope.launch {
+            mUserPhotoList.postValue(Resource.Loading())
+
+            mUserPhotoList.postValue(repositoryFeed.getUserByUsername(id))
+        }
+        return mUserPhotoList
     }
 
 }

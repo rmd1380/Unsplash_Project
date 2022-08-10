@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -17,6 +18,7 @@ import com.example.unsplashproject.R
 import com.example.unsplashproject.adapter.PhotosAndFeedAdapter
 import com.example.unsplashproject.adapter.TopicAdapter
 import com.example.unsplashproject.adapter.TopicPhotosAdapter
+import com.example.unsplashproject.viewmodels.feedfragmentviewmodels.FeedDetailFragmentViewModel
 import com.example.unsplashproject.viewmodels.topicfragmentviewmodels.TopicDetailFragmentViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -30,6 +32,7 @@ class TopicDetailFragment : Fragment() {
     private lateinit var tvTopicDescription: TextView
     private lateinit var recTopicDetail: RecyclerView
     private lateinit var adapterTopicDetail: PhotosAndFeedAdapter
+    private val viewModel: TopicDetailFragmentViewModel by activityViewModels()
     var bundle=Bundle()
 
     override fun onCreateView(
@@ -52,7 +55,6 @@ class TopicDetailFragment : Fragment() {
 
 
     private fun viewModel() {
-        val viewModel: TopicDetailFragmentViewModel = ViewModelProvider(this)[TopicDetailFragmentViewModel::class.java]
         viewModel.getLiveDataObserver(requireArguments().getString("TopicID")!!).observe(viewLifecycleOwner) {
             if (it != null) {
                 tvToolbarTopic.text = it.title.toString()

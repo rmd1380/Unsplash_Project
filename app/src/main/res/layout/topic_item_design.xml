@@ -7,25 +7,17 @@
     android:padding="8dp"
     app:columnCount="2">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_view_topic"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:padding="16dp"
-        app:cardCornerRadius="16dp">
 
         <TextView
+            android:paddingVertical="8dp"
             android:id="@+id/tv_topic_item"
             android:background="@drawable/topic_item_shape"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
             android:fontFamily="@font/outfit_medium"
             android:gravity="center"
             android:text="Wallpaper"
             android:textColor="@color/black"
             android:textSize="14sp" />
-
-    </androidx.cardview.widget.CardView>
 
 </androidx.gridlayout.widget.GridLayout>

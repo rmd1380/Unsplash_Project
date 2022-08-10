@@ -2,27 +2,25 @@ package com.example.unsplashproject.viewmodels.topicfragmentviewmodels
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.example.unsplashproject.model.response.PhotoResponse
 import com.example.unsplashproject.model.response.TopicResponse
-import com.example.unsplashproject.repositories.Repository
+import com.example.unsplashproject.repositories.RepositoryFeed
+import com.example.unsplashproject.repositories.RepositoryTopic
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class TopicDetailFragmentViewModel @Inject constructor(private val repository: Repository) :
-    ViewModel() {
+class TopicDetailFragmentViewModel @Inject constructor(private val repositoryFeed: RepositoryTopic):ViewModel() {
 
     private val liveDataTopicList: MutableLiveData<List<TopicResponse>?> = MutableLiveData()
 
     fun getLiveDataObserver(id: String): MutableLiveData<TopicResponse?> {
-        return repository.getTopicDetailById(id)
+        return repositoryFeed.getTopicDetailById(id)
     }
 
     fun loadListOfData(id: String): MutableLiveData<List<PhotoResponse>?> {
 
-        return repository.getTopicPhotosById(id)
+        return repositoryFeed.getTopicPhotosById(id)
 
     }
 }

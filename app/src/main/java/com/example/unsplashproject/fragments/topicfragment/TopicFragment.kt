@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -16,6 +17,7 @@ import com.example.unsplashproject.adapter.TopicAdapter
 import com.example.unsplashproject.model.response.TopicResponse
 import com.example.unsplashproject.services.ServiceApi
 import com.example.unsplashproject.services.ServiceBuilder
+import com.example.unsplashproject.viewmodels.feedfragmentviewmodels.FeedDetailFragmentViewModel
 import com.example.unsplashproject.viewmodels.feedfragmentviewmodels.FeedFragmentViewModel
 import com.example.unsplashproject.viewmodels.topicfragmentviewmodels.TopicFragmentViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -29,6 +31,7 @@ class TopicFragment : Fragment() {
     private lateinit var gridLayoutManager: GridLayoutManager
     private lateinit var adapter: TopicAdapter
     private lateinit var recTopic: RecyclerView
+    private val viewModel: TopicFragmentViewModel by activityViewModels()
     var bundle=Bundle()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,7 +53,6 @@ class TopicFragment : Fragment() {
     }
 
     private fun viewModel() {
-        val viewModel: TopicFragmentViewModel = ViewModelProvider(this)[TopicFragmentViewModel::class.java]
         viewModel.getLiveDataObserver().observe(viewLifecycleOwner) {
             if (it != null) {
                 adapter.setupList(it)

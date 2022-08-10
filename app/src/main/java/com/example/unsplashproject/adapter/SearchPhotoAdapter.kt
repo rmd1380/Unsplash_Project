@@ -2,6 +2,7 @@ package com.example.unsplashproject.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -47,6 +48,8 @@ class SearchPhotoAdapter(private val context: Context?, private var listItem: Li
     fun setupList(list: List<Results>?)
     {
         this.listItem= list
+
+        Log.d("setupList", "%s %s".format(list?.size, list?.get(0)?.urls?.regular ))
         notifyDataSetChanged()
     }
 

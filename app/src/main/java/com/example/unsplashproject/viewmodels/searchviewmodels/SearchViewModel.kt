@@ -17,13 +17,12 @@ class SearchViewModel @Inject constructor(private val repositoryFeed: Repository
     ViewModel() {
 
     var mQuery: MutableLiveData<String> = MutableLiveData()
-    private var mPhotoSearch = MutableLiveData<Resource<SearchResponse>>()
+    private var mPhotoSearch = MutableLiveData<Resource<List<Results>>>()
     private var mUserSearch = MutableLiveData<Resource<List<SearchResponse>>>()
 
-    fun getLiveDataObserverPhotoSearch(query: String): LiveData<Resource<SearchResponse>> {
+    fun getLiveDataObserverPhotoSearch(query: String): LiveData<Resource<List<Results>>> {
         viewModelScope.launch {
             mPhotoSearch.postValue(Resource.Loading())
-
             mPhotoSearch.postValue(repositoryFeed.getPhotosBySearch(query))
         }
         return mPhotoSearch

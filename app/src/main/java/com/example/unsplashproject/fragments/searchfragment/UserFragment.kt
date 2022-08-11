@@ -47,7 +47,7 @@ class UserFragment : Fragment() {
 
                 }
                 is Resource.Success -> {
-                    adapter.setupList(it.data)
+                    //adapter.setupList(it.data)
                     adapter.notifyDataSetChanged()
                 }
                 is Resource.Error -> {

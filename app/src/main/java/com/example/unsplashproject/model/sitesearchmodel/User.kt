@@ -1,8 +1,6 @@
 package com.example.unsplashproject.model.sitesearchmodel
 
-import com.example.unsplashproject.model.sitesearchmodel.Links
 import com.google.gson.annotations.SerializedName
-
 
 data class User (
 

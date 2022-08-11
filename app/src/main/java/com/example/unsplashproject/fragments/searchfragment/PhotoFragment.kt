@@ -42,16 +42,15 @@ class PhotoFragment : Fragment() {
     }
 
     private fun viewModel(query: String) {
-        viewModel.getLiveDataObserverPhotoSearch(query).observe(viewLifecycleOwner)
+        viewModel.getLiveDataObserverPhotoSearch("cat").observe(viewLifecycleOwner)
         {
-            Log.d("ititit","${it.data?.results}")
+            Log.d("ititit","${it.data}")
             when (it) {
                 is Resource.Loading -> {
 
                 }
                 is Resource.Success -> {
-                    adapter.setupList(it.data?.results)
-                    adapter.notifyDataSetChanged()
+                    adapter.setupList(it.data)
                 }
                 is Resource.Error -> {
                     Toast.makeText(context, "Error in getting data", Toast.LENGTH_SHORT).show()

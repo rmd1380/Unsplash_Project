@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     android:orientation="vertical"
     tools:context=".fragments.feedFragment.FeedProfileFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white">
+        android:background="@color/white"
+        android:fitsSystemWindows="true">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -37,61 +39,76 @@
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
-
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/iv_profile"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="125dp"
-            android:layout_marginTop="44dp"
-            android:layout_marginEnd="125dp"
-            android:layout_marginBottom="12dp"
-            android:contentDescription="@string/feedDetailImgProfile"
-            android:scaleType="centerCrop"
-            app:civ_border_color="@color/white"
-            app:civ_border_width="1dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/profile_username"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="124dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="124dp"
-            android:fontFamily="@font/outfit_regular"
-            android:gravity="center"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:gravity="center"
+                android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/profile_bio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="44dp"
-            android:fontFamily="@font/outfit_light"
-            android:gravity="center"
-            android:textColor="@color/Dark_Dark_500"
-            android:textSize="14sp" />
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/iv_profile"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="125dp"
+                    android:layout_marginTop="44dp"
+                    android:layout_marginEnd="125dp"
+                    android:layout_marginBottom="12dp"
+                    android:contentDescription="@string/feedDetailImgProfile"
+                    android:scaleType="centerCrop"
+                    android:src="@color/Dark_Dark_100"
+                    app:civ_border_color="@color/white"
+                    app:civ_border_width="1dp" />
 
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/profile_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="124dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="124dp"
+                    android:fontFamily="@font/outfit_regular"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rec_profile"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+                <TextView
+                    android:id="@+id/profile_bio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="44dp"
+                    android:fontFamily="@font/outfit_light"
+                    android:gravity="center"
+                    android:textColor="@color/Dark_Dark_500"
+                    android:textSize="14sp" />
 
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rec_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                tools:listitem="@layout/photo_item_design" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 </LinearLayout>

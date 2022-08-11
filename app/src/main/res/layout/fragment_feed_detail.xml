@@ -39,8 +39,6 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
@@ -57,8 +55,9 @@
         <ImageView
             android:id="@+id/feed_iv_main_photo"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
+            android:src="@color/Dark_Dark_100"
             android:contentDescription="@string/feedDetailImg"
             android:scaleType="centerCrop" />
 
@@ -75,6 +74,7 @@
                 android:layout_marginStart="12dp"
                 android:layout_marginBottom="12dp"
                 app:civ_border_color="@color/white"
+                android:src="@color/Dark_Dark_200"
                 app:civ_border_width="1dp"
                 android:contentDescription="@string/feedDetailImgProfile"
                 android:scaleType="centerCrop" />
@@ -88,7 +88,6 @@
                 android:layout_marginTop="24dp"
                 android:fontFamily="@font/outfit_regular"
                 android:gravity="center"
-                android:text="@string/Alishia_Marsi"
                 android:textColor="@color/white"
                 android:textDirection="ltr"
                 android:textSize="16sp" />

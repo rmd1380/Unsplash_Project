@@ -51,7 +51,7 @@ class FeedDetailFragment : Fragment() {
             findNavController().navigate(R.id.feedProfileFragment, bundle)
         }
         ivArrowBack.setOnClickListener {
-            findNavController().navigate(R.id.feedFragment)
+            findNavController().popBackStack()
         }
     }
 

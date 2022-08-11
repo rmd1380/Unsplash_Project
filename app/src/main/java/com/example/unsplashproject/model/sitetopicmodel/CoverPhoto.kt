@@ -23,7 +23,6 @@ data class CoverPhoto (
   @SerializedName("liked_by_user"            ) var likedByUser            : Boolean?          = null,
   @SerializedName("current_user_collections" ) var currentUserCollections : ArrayList<String> = arrayListOf(),
   @SerializedName("sponsorship"              ) var sponsorship            : String?           = null,
-  @SerializedName("topic_submissions"        ) var topicSubmissions       : TopicSubmissions? = TopicSubmissions(),
   @SerializedName("user"                     ) var user                   : User?             = User()
 
 )

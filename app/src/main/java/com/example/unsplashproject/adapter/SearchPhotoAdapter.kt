@@ -27,7 +27,7 @@ class SearchPhotoAdapter(private val context: Context?, private var listItem: Li
         val item= listItem!![position]
         Glide
             .with(context!!)
-            .load(item.urls?.regular)
+            .load(item.photos?.urls?.regular)
             .centerCrop()
             .into(holder.img)
         holder.itemView.setOnClickListener {

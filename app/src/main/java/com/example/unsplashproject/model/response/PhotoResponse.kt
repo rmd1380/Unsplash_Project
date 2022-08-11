@@ -16,9 +16,6 @@ data class PhotoResponse(
     @SerializedName("links") var links: Links? = Links(),
     @SerializedName("user") var user: User? = User(),
     @SerializedName("exif") var exif: Exif? = Exif(),
-    @SerializedName("location") var location: Location? = Location(),
-    @SerializedName("meta") var meta: Meta? = Meta(),
-    @SerializedName("related_collections") var relatedCollections: RelatedCollections? = RelatedCollections(),
     @SerializedName("views") var views: Int? = null,
     @SerializedName("downloads") var downloads: Int? = null,
 

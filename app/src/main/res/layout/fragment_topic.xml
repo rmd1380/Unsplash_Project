@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/feed_rec"
-    android:padding="8dp"
     tools:context="fragments.topicfragment.TopicFragment">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -34,6 +33,7 @@
         android:id="@+id/rec_topic"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginHorizontal="8dp"
         android:paddingVertical="8dp"
         android:clipToPadding="false"/>
 

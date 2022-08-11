@@ -49,7 +49,7 @@ class SearchPhotoAdapter(private val context: Context?, private var listItem: Li
     {
         this.listItem= list
 
-        Log.d("setupList", "%s %s".format(list?.size, list?.get(0)?.urls?.regular ))
+//        Log.d("setupList", "%s %s".format(list?.size, list?.get(0)?.urls?.regular ))
         notifyDataSetChanged()
     }
 

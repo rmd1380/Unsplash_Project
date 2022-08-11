@@ -3,6 +3,7 @@ package com.example.unsplashproject.services
 import com.example.unsplashproject.model.response.PhotoResponse
 import com.example.unsplashproject.model.response.SearchResponse
 import com.example.unsplashproject.model.response.TopicResponse
+import com.example.unsplashproject.model.sitesearchmodel.Results
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.GET
@@ -29,9 +30,9 @@ interface ServiceApi {
     suspend fun getTopicPhotosById(@Path("id") id: String): Response<List<PhotoResponse>>
 
     @GET("search/photos")
-    fun getPhotosBySearch(@Query("query") query: String): Call<SearchResponse>
+    fun getPhotosBySearch(@Query("query") query: String): Response<SearchResponse>
 
     @GET("search/users")
-    fun getUsersBySearch(@Query("query") query: String): Call<SearchResponse>
+    fun getUsersBySearch(@Query("query") query: String): Response<List<SearchResponse>>
 
 }

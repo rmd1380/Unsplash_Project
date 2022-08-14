@@ -26,6 +26,10 @@
         <item name="android:background">@android:color/transparent</item>
     </style>
 
+<!--    <style name="Text_Input_OutLine_Error" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">-->
+<!--        <item name="android:color">@color/Primary_Primary_500</item>-->
+<!--    </style>-->
+
 
 
 <!--    <style name="BottomSheetDialogTheme" parent="Theme.AppCompat.Light.NoActionBar">-->

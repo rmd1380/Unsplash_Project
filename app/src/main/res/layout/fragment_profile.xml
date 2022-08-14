@@ -102,12 +102,13 @@
                     android:paddingStart="14dp">
 
                     <TextView
+                        android:id="@+id/profile_first_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="left|center"
                         android:fontFamily="@font/outfit_regular"
                         android:gravity="top"
-                        android:text="Rasoul"
+                        android:text="FirstName"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
@@ -165,12 +166,13 @@
                     android:paddingStart="14dp">
 
                     <TextView
+                        android:id="@+id/profile_last_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="left|center"
                         android:fontFamily="@font/outfit_regular"
                         android:gravity="top"
-                        android:text="Motie"
+                        android:text="LastName"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
@@ -228,6 +230,7 @@
                     android:paddingStart="14dp">
 
                     <TextView
+                        android:id="@+id/profile_email"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="left|center"
@@ -290,6 +293,7 @@
                     android:paddingStart="14dp">
 
                     <TextView
+                        android:id="@+id/profile_password"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="left|center"

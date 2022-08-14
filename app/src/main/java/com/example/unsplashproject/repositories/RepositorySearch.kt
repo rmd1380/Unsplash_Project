@@ -10,7 +10,7 @@ import javax.inject.Inject
 class RepositorySearch @Inject constructor(private val api: ServiceApi) : BaseRepository() {
 
 
-    suspend fun getPhotosBySearch(query: String): Resource<List<Results>> {
+    suspend fun getPhotosBySearch(query: String): Resource<SearchResponse> {
         return safeApiCall { api.getPhotosBySearch(query) }
     }
 

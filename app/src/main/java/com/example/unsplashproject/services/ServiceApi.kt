@@ -30,7 +30,7 @@ interface ServiceApi {
     suspend fun getTopicPhotosById(@Path("id") id: String): Response<List<PhotoResponse>>
 
     @GET("search/photos")
-    fun getPhotosBySearch(@Query("query") query: String): Response<List<Results>>
+    fun getPhotosBySearch(@Query("query") query: String): Response<SearchResponse>
 
     @GET("search/users")
     fun getUsersBySearch(@Query("query") query: String): Response<List<SearchResponse>>

@@ -2,10 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sn_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:id="@+id/sn_view"
     tools:context=".LoginActivity">
 
     <LinearLayout
@@ -26,16 +26,17 @@
             app:srcCompat="@drawable/unsplash_wordmark_logo_1" />
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_email"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:boxStrokeColor="@color/Dark_Dark_200"
-            app:hintTextColor="@color/Neutral_Neutral_800"
             app:boxCornerRadiusBottomEnd="8dp"
             app:boxCornerRadiusBottomStart="8dp"
-            app:boxCornerRadiusTopStart="8dp"
             app:boxCornerRadiusTopEnd="8dp"
-            app:boxStrokeErrorColor="@color/Primary_Primary_500">
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxStrokeColor="@color/Dark_Dark_200"
+            app:boxStrokeErrorColor="@color/Primary_Primary_500"
+            app:hintTextColor="@color/Neutral_Neutral_800">
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/et_email"
@@ -48,16 +49,20 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_password"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:boxStrokeColor="@color/Dark_Dark_200"
             app:boxCornerRadiusBottomEnd="8dp"
             app:boxCornerRadiusBottomStart="8dp"
-            app:boxCornerRadiusTopStart="8dp"
             app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxStrokeColor="@color/Dark_Dark_200"
+            app:boxStrokeErrorColor="@color/Primary_Primary_500"
+            app:endIconCheckable="false"
+            app:endIconMode="password_toggle"
             app:hintTextColor="@color/Neutral_Neutral_800"
-            app:boxStrokeErrorColor="@color/Primary_Primary_500">
+            >
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/et_password"
@@ -65,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
                 android:hint="Password"
-                android:inputType="textEmailAddress" />
+                android:inputType="textPassword" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -78,11 +83,11 @@
             android:gravity="center"
             android:paddingHorizontal="24dp"
             android:paddingVertical="16dp"
-            app:backgroundTint="@null"
             android:text="Login"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            app:backgroundTint="@null" />
     </LinearLayout>
 
 

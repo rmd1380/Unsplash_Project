@@ -50,7 +50,7 @@ class PhotoFragment : Fragment() {
 
                 }
                 is Resource.Success -> {
-                    adapter.setupList(it.data)
+                    adapter.setupList(it.data?.results)
                 }
                 is Resource.Error -> {
                     Toast.makeText(context, "Error in getting data", Toast.LENGTH_SHORT).show()

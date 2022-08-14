@@ -4,24 +4,27 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.unsplashproject.dao.LoginDao
-import com.example.unsplashproject.model.login.LoginModel
+import com.example.unsplashproject.dao.UserDao
+import com.example.unsplashproject.model.login.UserModel
 
-@Database(entities = [LoginModel::class], version = 1)
+@Database(entities = [UserModel::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
 
-    abstract fun loginDao(): LoginDao
+    abstract fun userDao(): UserDao
 
     companion object {
         private var instance: AppDatabase? = null
         fun getInstance(context: Context): AppDatabase {
             if (instance == null) {
                 instance = Room.databaseBuilder(
-                    context,
-                    AppDatabase::class.java, "LoginDatabase"
+                    context.applicationContext,
+                    AppDatabase::class.java, "UserDatabase"
                 ).fallbackToDestructiveMigration().build()
             }
             return instance as AppDatabase
+        }
+        fun destroyInstance() {
+            instance = null
         }
 
     }

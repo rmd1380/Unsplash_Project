@@ -44,7 +44,7 @@ class PhotoFragment : Fragment() {
     private fun viewModel(query: String) {
         viewModel.getLiveDataObserverPhotoSearch("cat").observe(viewLifecycleOwner)
         {
-            Log.d("ititit","${it.data}")
+            Log.d("ititit","${it.data?.results}")
             when (it) {
                 is Resource.Loading -> {
 

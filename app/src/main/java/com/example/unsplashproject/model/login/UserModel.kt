@@ -10,5 +10,5 @@ data class UserModel(
     var password: String? = null,
     var firstName: String? = null,
     var lastName: String? = null,
-    var image: String? = null
+    var image: String?=null
 )

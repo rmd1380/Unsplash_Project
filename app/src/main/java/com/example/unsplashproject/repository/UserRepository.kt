@@ -1,6 +1,8 @@
 package com.example.unsplashproject.repository
 
 import android.app.Application
+import android.graphics.Bitmap
+import androidx.compose.ui.graphics.asImageBitmap
 import androidx.lifecycle.LiveData
 import com.example.unsplashproject.dao.UserDao
 import com.example.unsplashproject.db.AppDatabase

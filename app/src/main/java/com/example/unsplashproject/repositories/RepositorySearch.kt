@@ -14,7 +14,7 @@ class RepositorySearch @Inject constructor(private val api: ServiceApi) : BaseRe
         return safeApiCall { api.getPhotosBySearch(query) }
     }
 
-    suspend fun getUsersBySearch(query: String): Resource<List<SearchResponse>> {
+    suspend fun getUsersBySearch(query: String): Resource<SearchResponse> {
         return safeApiCall { api.getUsersBySearch(query) }
     }
 }

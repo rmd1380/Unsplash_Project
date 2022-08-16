@@ -33,6 +33,6 @@ interface ServiceApi {
     fun getPhotosBySearch(@Query("query") query: String): Response<SearchResponse>
 
     @GET("search/users")
-    fun getUsersBySearch(@Query("query") query: String): Response<List<SearchResponse>>
+    fun getUsersBySearch(@Query("query") query: String): Response<SearchResponse>
 
 }

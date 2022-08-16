@@ -38,7 +38,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
 
-    <de.hdodenhof.circleimageview.CircleImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/profile_iv"
         android:layout_width="110dp"
         android:layout_height="110dp"
@@ -46,21 +46,26 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="44dp"
-        android:src="@drawable/animal_yek"
+        android:background="@color/Dark_Dark_100"
+        android:scaleType="centerCrop"
+        android:src="@drawable/icon_user"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay." />
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/edit_iv_background"
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/add_profile_photo"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_alignTop="@+id/profile_iv"
         android:layout_alignParentEnd="true"
         android:background="@drawable/edit_shape"
-        android:src="@drawable/icon_edit"
         app:layout_constraintBottom_toBottomOf="@+id/profile_iv"
-        app:layout_constraintEnd_toEndOf="@+id/profile_iv" />
+        app:layout_constraintEnd_toEndOf="@+id/profile_iv"
+        android:src="@drawable/icon_edit"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay."/>
+
 
     <ScrollView
         android:layout_width="match_parent"

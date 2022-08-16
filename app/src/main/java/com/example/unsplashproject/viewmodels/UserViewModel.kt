@@ -33,7 +33,6 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
 
     fun isUserExist(email: String): LiveData<Boolean> {
         return repository.isUserExist(email)
-
     }
 
     fun getUser(email: String): LiveData<UserModel?> {

@@ -10,12 +10,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.unsplashproject.R
-import com.example.unsplashproject.model.response.SearchResponse
-import com.example.unsplashproject.model.response.TopicResponse
-import com.example.unsplashproject.model.sitesearchmodel.Results
-import com.example.unsplashproject.model.sitesearchmodel.User
+import com.example.unsplashproject.model.sitesearchphotomodel.Results
 
-class SearchUserAdapter(private val context: Context?, private var listItem: List<Results>?=null, private var callback: (Results) -> Unit) :
+class SearchUserAdapter(private val context: Context?, private var listItem: List<com.example.unsplashproject.model.sitesearchusermodel.Results>?=null, private var callback: (com.example.unsplashproject.model.sitesearchusermodel.Results) -> Unit) :
     RecyclerView.Adapter<SearchUserAdapter.TopicItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TopicItemViewHolder {
@@ -35,6 +32,8 @@ class SearchUserAdapter(private val context: Context?, private var listItem: Lis
             callback.invoke(listItem!![position])
         }
 
+        holder.txt.isSelected = true
+
     }
 
     override fun getItemCount(): Int {
@@ -47,7 +46,7 @@ class SearchUserAdapter(private val context: Context?, private var listItem: Lis
 
     }
     @SuppressLint("NotifyDataSetChanged")
-    fun setupList(list: List<Results>?)
+    fun setupList(list: List<com.example.unsplashproject.model.sitesearchusermodel.Results>?)
     {
         this.listItem= list
         notifyDataSetChanged()

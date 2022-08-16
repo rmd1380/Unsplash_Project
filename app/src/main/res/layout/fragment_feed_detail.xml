@@ -57,7 +57,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:src="@color/Dark_Dark_100"
+            android:background="@color/Dark_Dark_100"
             android:contentDescription="@string/feedDetailImg"
             android:scaleType="centerCrop" />
 
@@ -66,16 +66,17 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_gravity="bottom">
-            <de.hdodenhof.circleimageview.CircleImageView
+            <com.google.android.material.imageview.ShapeableImageView
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay."
                 android:id="@+id/feed_iv_profile_photo"
                 android:layout_width="56dp"
                 android:layout_height="56dp"
                 android:layout_gravity="bottom"
                 android:layout_marginStart="12dp"
                 android:layout_marginBottom="12dp"
-                app:civ_border_color="@color/white"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/white"
                 android:src="@color/Dark_Dark_200"
-                app:civ_border_width="1dp"
                 android:contentDescription="@string/feedDetailImgProfile"
                 android:scaleType="centerCrop" />
 

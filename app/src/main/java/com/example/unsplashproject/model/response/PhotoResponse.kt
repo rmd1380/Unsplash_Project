@@ -1,7 +1,6 @@
 package com.example.unsplashproject.model.response
 
 import com.example.unsplashproject.model.sitephotomodel.*
-import com.example.unsplashproject.model.sitesearchmodel.Results
 import com.google.gson.annotations.SerializedName
 
 

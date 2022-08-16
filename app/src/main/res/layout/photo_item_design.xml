@@ -22,7 +22,7 @@
             android:id="@+id/photo_iv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@color/Dark_Dark_100" />
+            android:background="@color/Dark_Dark_100" />
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

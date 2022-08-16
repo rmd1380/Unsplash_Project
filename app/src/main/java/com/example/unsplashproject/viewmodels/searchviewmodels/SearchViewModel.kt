@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.unsplashproject.model.response.SearchResponse
-import com.example.unsplashproject.model.sitesearchmodel.Results
+import com.example.unsplashproject.model.response.SearchPhotoResponse
+import com.example.unsplashproject.model.response.SearchUserResponse
 import com.example.unsplashproject.repositories.RepositorySearch
 import com.example.unsplashproject.services.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,10 +17,10 @@ class SearchViewModel @Inject constructor(private val repositoryFeed: Repository
     ViewModel() {
 
     var mQuery: MutableLiveData<String> = MutableLiveData()
-    private var mPhotoSearch = MutableLiveData<Resource<SearchResponse>>()
-    private var mUserSearch = MutableLiveData<Resource<SearchResponse>>()
+    private var mPhotoSearch = MutableLiveData<Resource<SearchPhotoResponse>>()
+    private var mUserSearch = MutableLiveData<Resource<SearchUserResponse>>()
 
-    fun getLiveDataObserverPhotoSearch(query: String): LiveData<Resource<SearchResponse>> {
+    fun getLiveDataObserverPhotoSearch(query: String): LiveData<Resource<SearchPhotoResponse>> {
         viewModelScope.launch {
             mPhotoSearch.postValue(Resource.Loading())
             mPhotoSearch.postValue(repositoryFeed.getPhotosBySearch(query))
@@ -28,10 +28,9 @@ class SearchViewModel @Inject constructor(private val repositoryFeed: Repository
         return mPhotoSearch
     }
 
-    fun getLiveDataObserverUserSearch(query: String): LiveData<Resource<SearchResponse>> {
+    fun getLiveDataObserverUserSearch(query: String): LiveData<Resource<SearchUserResponse>> {
         viewModelScope.launch {
             mUserSearch.postValue(Resource.Loading())
-
             mUserSearch.postValue(repositoryFeed.getUsersBySearch(query))
         }
         return mUserSearch

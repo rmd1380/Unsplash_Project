@@ -15,6 +15,7 @@ import com.example.unsplashproject.adapter.SearchPhotoAdapter
 import com.example.unsplashproject.services.Resource
 import com.example.unsplashproject.viewmodels.searchviewmodels.SearchViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
 @AndroidEntryPoint
 class PhotoFragment : Fragment() {
@@ -42,7 +43,7 @@ class PhotoFragment : Fragment() {
     }
 
     private fun viewModel(query: String) {
-        viewModel.getLiveDataObserverPhotoSearch("cat").observe(viewLifecycleOwner)
+        viewModel.getLiveDataObserverPhotoSearch(query).observe(viewLifecycleOwner)
         {
             Log.d("ititit","${it.data?.results}")
             when (it) {
@@ -53,6 +54,7 @@ class PhotoFragment : Fragment() {
                     adapter.setupList(it.data?.results)
                 }
                 is Resource.Error -> {
+                    Log.d("Error" , "ERROR_SEARCH:: ${it.message}")
                     Toast.makeText(context, "Error in getting data", Toast.LENGTH_SHORT).show()
                 }
             }

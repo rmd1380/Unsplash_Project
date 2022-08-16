@@ -1,4 +1,4 @@
-package com.example.unsplashproject.model.sitesearchmodel
+package com.example.unsplashproject.model.sitesearchphotomodel
 
 import com.google.gson.annotations.SerializedName
 

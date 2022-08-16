@@ -2,18 +2,14 @@ package com.example.unsplashproject.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.unsplashproject.R
-import com.example.unsplashproject.model.response.SearchResponse
-import com.example.unsplashproject.model.response.TopicResponse
-import com.example.unsplashproject.model.sitesearchmodel.Results
+import com.example.unsplashproject.model.sitesearchphotomodel.Results
 
 class SearchPhotoAdapter(private val context: Context?, private var listItem: List<Results>?=null, private var callback: (Results) -> Unit) :
     RecyclerView.Adapter<SearchPhotoAdapter.TopicItemViewHolder>() {

@@ -56,7 +56,8 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <de.hdodenhof.circleimageview.CircleImageView
+                <com.google.android.material.imageview.ShapeableImageView
+                    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay."
                     android:id="@+id/iv_profile"
                     android:layout_width="110dp"
                     android:layout_height="110dp"

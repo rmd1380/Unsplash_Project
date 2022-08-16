@@ -35,6 +35,7 @@ class SearchFragment : Fragment() {
     private fun view(inflater: LayoutInflater, container: ViewGroup?): View {
         val view: View = inflater.inflate(R.layout.fragment_search, container, false)
         init(view)
+        viewModel.mQuery.postValue("cat")
         return view
     }
 

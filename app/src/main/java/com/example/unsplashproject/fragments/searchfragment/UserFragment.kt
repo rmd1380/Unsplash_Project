@@ -1,6 +1,7 @@
 package com.example.unsplashproject.fragments.searchfragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -39,6 +40,7 @@ class UserFragment : Fragment() {
     }
 
     private fun viewModel(query: String) {
+        Log.d("QUERYTEXT" , query)
         viewModel.getLiveDataObserverUserSearch(query).observe(viewLifecycleOwner)
         {
 
@@ -47,10 +49,11 @@ class UserFragment : Fragment() {
 
                 }
                 is Resource.Success -> {
-                    //adapter.setupList(it.data)
+                   adapter.setupList(it.data?.results)
                     adapter.notifyDataSetChanged()
                 }
                 is Resource.Error -> {
+                    Log.d("LOGERROR" , "ERROR_RES:: ${it.message}")
                     Toast.makeText(context, "Error in getting data", Toast.LENGTH_SHORT).show()
                 }
             }
@@ -61,7 +64,7 @@ class UserFragment : Fragment() {
         recUser = view.findViewById(R.id.rec_user)
     }
     private fun setupList() {
-        gridLayoutManager = GridLayoutManager(context, 2)
+        gridLayoutManager = GridLayoutManager(context, 3)
         recUser.layoutManager = gridLayoutManager
         adapter = SearchUserAdapter(context) {
         }

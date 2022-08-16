@@ -58,9 +58,9 @@
             app:boxCornerRadiusTopEnd="8dp"
             app:boxCornerRadiusTopStart="8dp"
             app:boxStrokeColor="@color/Dark_Dark_200"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/Dark_Dark_500"
             app:boxStrokeErrorColor="@color/Primary_Primary_500"
-            app:endIconCheckable="false"
-            app:endIconMode="password_toggle"
             app:hintTextColor="@color/Neutral_Neutral_800"
             >
 

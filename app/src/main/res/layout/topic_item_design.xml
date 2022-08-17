@@ -16,7 +16,7 @@
             android:layout_height="match_parent"
             android:fontFamily="@font/outfit_medium"
             android:gravity="center"
-            android:text="Wallpaper"
+            android:text="@string/wallpaper"
             android:textColor="@color/black"
             android:textSize="14sp" />
 

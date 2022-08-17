@@ -18,7 +18,6 @@ import com.example.unsplashproject.viewmodels.UserViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.provider.MediaStore
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.net.toUri
 import java.util.regex.Matcher
@@ -264,8 +263,7 @@ class ProfileFragment : Fragment() {
     private fun openGallery() {
         val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
         intent.addCategory(Intent.CATEGORY_OPENABLE)
-        intent.type = "image/jpeg"
-        //val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
+        intent.type = "image/*"
         requestImageLoad.launch(intent)
     }
 

@@ -10,9 +10,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.unsplashproject.R
-import com.example.unsplashproject.model.sitesearchphotomodel.Results
+import com.example.unsplashproject.model.sitesearchusermodel.Results
 
-class SearchUserAdapter(private val context: Context?, private var listItem: List<com.example.unsplashproject.model.sitesearchusermodel.Results>?=null, private var callback: (com.example.unsplashproject.model.sitesearchusermodel.Results) -> Unit) :
+class SearchUserAdapter(private val context: Context?, private var listItem: List<Results>?=null, private var callback: (Results) -> Unit) :
     RecyclerView.Adapter<SearchUserAdapter.TopicItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TopicItemViewHolder {
@@ -46,7 +46,7 @@ class SearchUserAdapter(private val context: Context?, private var listItem: Lis
 
     }
     @SuppressLint("NotifyDataSetChanged")
-    fun setupList(list: List<com.example.unsplashproject.model.sitesearchusermodel.Results>?)
+    fun setupList(list: List<Results>?)
     {
         this.listItem= list
         notifyDataSetChanged()

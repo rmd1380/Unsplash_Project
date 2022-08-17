@@ -1,5 +1,6 @@
 package com.example.unsplashproject.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.unsplashproject.R
 import com.example.unsplashproject.model.response.PhotoResponse
-import com.example.unsplashproject.model.sitephotomodel.Photos
 
 class PhotosAndFeedAdapter(private var context: Context?, private var imgList: List<PhotoResponse>?=null, private var callback: ((PhotoResponse) -> Unit)?) :
     RecyclerView.Adapter<PhotosAndFeedAdapter.ViewHolder>() {
@@ -40,6 +40,7 @@ class PhotosAndFeedAdapter(private var context: Context?, private var imgList: L
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val img: ImageView = itemView.findViewById(R.id.photo_iv)
     }
+    @SuppressLint("NotifyDataSetChanged")
     fun setupList(list :List<PhotoResponse>?)
     {
         this.imgList=list

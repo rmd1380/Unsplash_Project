@@ -23,7 +23,8 @@
             android:layout_height="46dp"
             android:layout_gravity="center"
             android:layout_marginBottom="58dp"
-            app:srcCompat="@drawable/unsplash_wordmark_logo_1" />
+            app:srcCompat="@drawable/unsplash_word_mark_logo_1"
+            android:contentDescription="@string/unsplash_logo" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/text_input_email"
@@ -43,7 +44,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="26dp"
-                android:hint="Email"
+                android:hint="@string/email"
                 android:inputType="textEmailAddress" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -69,7 +70,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
-                android:hint="Password"
+                android:hint="@string/password"
                 android:inputType="textPassword" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -83,7 +84,7 @@
             android:gravity="center"
             android:paddingHorizontal="24dp"
             android:paddingVertical="16dp"
-            android:text="Login"
+            android:text="@string/login"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
             android:textSize="16sp"

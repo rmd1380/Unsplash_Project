@@ -9,14 +9,12 @@
         android:id="@+id/topicFragment"
         android:name="com.example.unsplashproject.fragments.topicfragment.TopicFragment"
         android:label="fragment_topic"
-        tools:layout="@layout/fragment_topic" >
-    </fragment>
+        tools:layout="@layout/fragment_topic" />
     <fragment
         android:id="@+id/topicDetailFragment"
         android:name="com.example.unsplashproject.fragments.topicfragment.TopicDetailFragment"
         android:label="fragment_topic_detail"
-        tools:layout="@layout/fragment_topic_detail" >
-    </fragment>
+        tools:layout="@layout/fragment_topic_detail" />
     <fragment
         android:id="@+id/feedDetailFragment"
         android:name="com.example.unsplashproject.fragments.feedFragment.FeedDetailFragment"

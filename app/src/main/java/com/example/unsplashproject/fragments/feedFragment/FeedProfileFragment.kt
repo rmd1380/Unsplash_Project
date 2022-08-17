@@ -1,6 +1,7 @@
 package com.example.unsplashproject.fragments.feedFragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +10,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,7 +17,6 @@ import com.bumptech.glide.Glide
 import com.example.unsplashproject.R
 import com.example.unsplashproject.adapter.PhotosAndFeedAdapter
 import com.example.unsplashproject.services.Resource
-import com.example.unsplashproject.viewmodels.feedfragmentviewmodels.FeedDetailFragmentViewModel
 import com.example.unsplashproject.viewmodels.feedfragmentviewmodels.FeedProfileFragmentViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -55,7 +54,7 @@ class FeedProfileFragment : Fragment() {
     }
 
     private fun viewModel() {
-        viewModel.getLiveDataObserverPhotoDetail(requireArguments().getString("ImageIDProf")!!)
+        viewModel.getLiveDataObserverUserByUsername(requireArguments().getString("ImageUserNameProf")!!)
             .observe(viewLifecycleOwner)
             {
                 when (it) {
@@ -63,21 +62,21 @@ class FeedProfileFragment : Fragment() {
 
                     }
                     is Resource.Success -> {
-                        profileUserName.text = it.data?.user?.username
-                        toolbarUsername.text = it.data?.user?.username
-                        profileUserBio.text = it.data?.user?.bio
+                        profileUserName.text = it.data?.username
+                        toolbarUsername.text = it.data?.username
+                        profileUserBio.text = it.data?.bio
                         Glide
                             .with(context!!)
-                            .load(it.data?.user?.profileImage?.large)
+                            .load(it.data?.profileImage?.large)
                             .centerCrop()
                             .into(ivProfile)
                     }
                     is Resource.Error -> {
+                        Log.d("getProfileDetail", "Error in getting data " + it.message)
                         Toast.makeText(context, "Error in getting data", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
-
         viewModel.getLiveDataObserverUserPhotoList(requireArguments().getString("ImageUserNameProf")!!)
             .observe(viewLifecycleOwner)
             {

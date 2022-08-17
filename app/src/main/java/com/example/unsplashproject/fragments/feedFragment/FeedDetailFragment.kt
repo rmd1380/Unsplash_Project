@@ -47,7 +47,6 @@ class FeedDetailFragment : Fragment() {
         viewModel()
         ivProfile.setOnClickListener {
             bundle.putString("ImageUserNameProf", photoResponse?.data?.user?.username)
-            bundle.putString("ImageIDProf", photoResponse?.data?.id)
             findNavController().navigate(R.id.feedProfileFragment, bundle)
         }
         ivArrowBack.setOnClickListener {
@@ -83,11 +82,7 @@ class FeedDetailFragment : Fragment() {
                     }
                     is Resource.Error -> {
                         Log.d("getDetail", "Error in getting data " + it.message)
-                        Toast.makeText(
-                            context,
-                            "Error in getting data " + it.message,
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        Toast.makeText(context, "Error in getting data ", Toast.LENGTH_SHORT).show()
                     }
                 }
             }

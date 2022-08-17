@@ -7,6 +7,6 @@ data class SearchPhotoResponse(
 
     @SerializedName("total") var total: Int? = null,
     @SerializedName("total_pages") var totalPages: Int? = null,
-    @SerializedName("results") var results: List<Results>?
+    @SerializedName("results") var results: ArrayList<Results> = arrayListOf()
 
 )

@@ -1,6 +1,5 @@
 package com.example.unsplashproject.dao
 
-import android.graphics.Bitmap
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.unsplashproject.model.login.UserModel

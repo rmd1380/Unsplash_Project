@@ -17,7 +17,10 @@ interface ServiceApi {
     suspend fun getPhotoDetailById(@Path("id") id: String): Response<PhotoResponse>
 
     @GET("users/{username}/photos")
-    suspend fun getUserByUsername(@Path("username") username: String): Response<List<PhotoResponse>>
+    suspend fun getUserPhotos(@Path("username") username: String): Response<List<PhotoResponse>>
+
+    @GET("users/{username}")
+    suspend fun getUserByUsername(@Path("username") username: String): Response<PhotoResponse>
 
     @GET("topics")
     suspend fun getTopic(): Response<List<TopicResponse>>

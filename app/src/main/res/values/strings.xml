@@ -24,4 +24,22 @@
     <string name="users">Users</string>
     <string name="test_text">Things we love: 🍞 Crispbread (naturally) 🌍 Our planet 😋 Delicious food, everyday</string>
     <string name="test_text_topic">Covering the latest important events, news-worthy moments and movements from around the world — from political protests to cultural celebrations. When submitting, please provide a photo description so we understand the full context of the image</string>
+    <string name="email">Email</string>
+    <string name="unsplash_logo">Unsplash Logo</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="bottom_sheet_line">BottomSheetLine</string>
+    <string name="accept">Accept</string>
+    <string name="first_name">First Name</string>
+    <string name="user_icon">userIcon</string>
+    <string name="firstname">FirstName</string>
+    <string name="arrow_icon">arrowIcon</string>
+    <string name="lastname">LastName</string>
+    <string name="email_icon">emailIcon</string>
+    <string name="test_gmail_com">test@gmail.com</string>
+    <string name="password_icon">passwordIcon</string>
+    <string name="star_for_password">********</string>
+    <string name="confirm">Confirm</string>
+    <string name="photo_item">photoItem</string>
+    <string name="wallpaper">Wallpaper</string>
 </resources>

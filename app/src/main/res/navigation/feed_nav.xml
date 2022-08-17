@@ -9,18 +9,15 @@
         android:id="@+id/feedFragment"
         android:name="com.example.unsplashproject.fragments.feedFragment.FeedFragment"
         android:label="fragment_feed"
-        tools:layout="@layout/fragment_feed" >
-    </fragment>
+        tools:layout="@layout/fragment_feed" />
     <fragment
         android:id="@+id/feedDetailFragment"
         android:name="com.example.unsplashproject.fragments.feedFragment.FeedDetailFragment"
         android:label="fragment_feed_detail"
-        tools:layout="@layout/fragment_feed_detail" >
-    </fragment>
+        tools:layout="@layout/fragment_feed_detail" />
     <fragment
         android:id="@+id/feedProfileFragment"
         android:name="com.example.unsplashproject.fragments.feedFragment.FeedProfileFragment"
         android:label="fragment_feed_profile"
-        tools:layout="@layout/fragment_feed_profile" >
-    </fragment>
+        tools:layout="@layout/fragment_feed_profile" />
 </navigation>

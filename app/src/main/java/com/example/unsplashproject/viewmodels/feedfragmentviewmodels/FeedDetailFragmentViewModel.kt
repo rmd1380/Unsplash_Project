@@ -21,7 +21,7 @@ class FeedDetailFragmentViewModel @Inject constructor(private val repositoryFeed
     fun getLiveDataObserverPhotoData(id: String):LiveData<Resource<PhotoResponse>> {
         viewModelScope.launch {
             mPhotoData.postValue(Resource.Loading())
-            mPhotoData?.postValue(repositoryFeedDetail.getPhotoDetailById(id))
+            mPhotoData.postValue(repositoryFeedDetail.getPhotoDetailById(id))
         }
         return mPhotoData
     }

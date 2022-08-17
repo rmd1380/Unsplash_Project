@@ -17,7 +17,11 @@ class RepositoryFeed @Inject constructor(private val api: ServiceApi) : BaseRepo
         return safeApiCall { api.getPhotoDetailById(id) }
     }
 
-    suspend fun getUserByUsername(userName: String): Resource<List<PhotoResponse>> {
+    suspend fun getUserPhotos(userName: String): Resource<List<PhotoResponse>> {
+        return safeApiCall { api.getUserPhotos(userName) }
+    }
+
+    suspend fun getUserByUsername(userName: String): Resource<PhotoResponse> {
         return safeApiCall { api.getUserByUsername(userName) }
     }
 

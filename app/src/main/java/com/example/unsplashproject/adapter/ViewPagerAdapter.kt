@@ -4,9 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.unsplashproject.fragments.searchfragment.PhotoFragment
-import com.example.unsplashproject.fragments.searchfragment.SearchFragment
 import com.example.unsplashproject.fragments.searchfragment.UserFragment
-import com.example.unsplashproject.model.response.PhotoResponse
 
 
 class ViewPagerAdapter(fragmentActivity: FragmentActivity) :

@@ -23,7 +23,11 @@ class SearchFragment : Fragment() {
     private lateinit var viewPager2: ViewPager2
     private lateinit var etSearch: TextInputLayout
     private val viewModel: SearchViewModel by activityViewModels()
-    var query:String = "cat"
+    private var query:String = "cat"
+
+    companion object{
+        var isChanged: Boolean = true
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,7 +39,11 @@ class SearchFragment : Fragment() {
     private fun view(inflater: LayoutInflater, container: ViewGroup?): View {
         val view: View = inflater.inflate(R.layout.fragment_search, container, false)
         init(view)
-        viewModel.mQuery.postValue("cat")
+        if (isChanged){
+            viewModel.mQuery.postValue("cat")
+            isChanged=false
+        }
+
         return view
     }
 
@@ -56,7 +64,7 @@ class SearchFragment : Fragment() {
                 }
             }
         }.attach()
-        etSearch.editText?.setOnEditorActionListener { textView, i, event ->
+        etSearch.editText?.setOnEditorActionListener { _, i, _ ->
             if (i == EditorInfo.IME_ACTION_DONE) {
                 query = etSearch.editText?.text.toString()
                 viewModel.mQuery.postValue(query)

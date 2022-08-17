@@ -1,17 +1,18 @@
 package com.example.unsplashproject.fragments.searchfragment
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.unsplashproject.R
 import com.example.unsplashproject.adapter.SearchUserAdapter
+import com.example.unsplashproject.model.sitesearchusermodel.Results
 import com.example.unsplashproject.services.Resource
 import com.example.unsplashproject.viewmodels.searchviewmodels.SearchViewModel
 
@@ -21,7 +22,8 @@ class UserFragment : Fragment() {
     private lateinit var recUser: RecyclerView
     lateinit var adapter: SearchUserAdapter
     private val viewModel: SearchViewModel by activityViewModels()
-
+    var bundle = Bundle()
+    var response: Results? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -40,7 +42,6 @@ class UserFragment : Fragment() {
     }
 
     private fun viewModel(query: String) {
-        Log.d("QUERYTEXT" , query)
         viewModel.getLiveDataObserverUserSearch(query).observe(viewLifecycleOwner)
         {
 
@@ -53,7 +54,6 @@ class UserFragment : Fragment() {
                     adapter.notifyDataSetChanged()
                 }
                 is Resource.Error -> {
-                    Log.d("LOGERROR" , "ERROR_RES:: ${it.message}")
                     Toast.makeText(context, "Error in getting data", Toast.LENGTH_SHORT).show()
                 }
             }
@@ -67,6 +67,9 @@ class UserFragment : Fragment() {
         gridLayoutManager = GridLayoutManager(context, 3)
         recUser.layoutManager = gridLayoutManager
         adapter = SearchUserAdapter(context) {
+            response=it
+            bundle.putString("ImageUserNameProf", it.username)
+            findNavController().navigate(R.id.feedProfileFragment,bundle)
         }
         recUser.adapter = adapter
     }

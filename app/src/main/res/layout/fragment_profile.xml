@@ -96,7 +96,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:src="@drawable/icon_user" />
+                    android:src="@drawable/icon_user"
+                    android:contentDescription="@string/user_icon" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -104,25 +105,26 @@
                     android:layout_weight="8"
                     android:gravity="top"
                     android:orientation="vertical"
-                    android:paddingStart="14dp">
+                    android:paddingStart="14dp"
+                    android:paddingEnd="0dp">
 
                     <TextView
                         android:id="@+id/profile_first_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="left|center"
+                        android:layout_gravity="start|center"
                         android:fontFamily="@font/outfit_regular"
                         android:gravity="top"
-                        android:text="FirstName"
+                        android:text="@string/firstname"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="left|center"
+                        android:layout_gravity="start|center"
                         android:fontFamily="@font/outfit_light"
-                        android:text="First Name"
+                        android:text="@string/first_name"
                         android:textColor="@color/Dark_Dark_200"
                         android:textSize="12sp" />
 
@@ -133,7 +135,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:src="@drawable/icon_chevronright" />
+                    android:src="@drawable/icon_chevronright"
+                    android:contentDescription="@string/arrow_icon" />
 
 
             </LinearLayout>
@@ -159,7 +162,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:src="@drawable/icon_user" />
+                    android:src="@drawable/icon_user"
+                    android:contentDescription="@string/user_icon" />
 
                 <LinearLayout
 
@@ -168,25 +172,26 @@
                     android:layout_weight="8"
                     android:gravity="top"
                     android:orientation="vertical"
-                    android:paddingStart="14dp">
+                    android:paddingStart="14dp"
+                    android:paddingEnd="0dp">
 
                     <TextView
                         android:id="@+id/profile_last_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="left|center"
+                        android:layout_gravity="start|center"
                         android:fontFamily="@font/outfit_regular"
                         android:gravity="top"
-                        android:text="LastName"
+                        android:text="@string/lastname"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="left|center"
+                        android:layout_gravity="start|center"
                         android:fontFamily="@font/outfit_light"
-                        android:text="Last Name"
+                        android:text="@string/lastname"
                         android:textColor="@color/Dark_Dark_200"
                         android:textSize="12sp" />
 
@@ -197,7 +202,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:src="@drawable/icon_chevronright" />
+                    android:src="@drawable/icon_chevronright"
+                    android:contentDescription="@string/arrow_icon" />
 
 
             </LinearLayout>
@@ -223,7 +229,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:src="@drawable/icon_mail" />
+                    android:src="@drawable/icon_mail"
+                    android:contentDescription="@string/email_icon" />
 
                 <LinearLayout
 
@@ -232,25 +239,26 @@
                     android:layout_weight="8"
                     android:gravity="top"
                     android:orientation="vertical"
-                    android:paddingStart="14dp">
+                    android:paddingStart="14dp"
+                    android:paddingEnd="0dp">
 
                     <TextView
                         android:id="@+id/profile_email"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="left|center"
+                        android:layout_gravity="start|center"
                         android:fontFamily="@font/outfit_regular"
                         android:gravity="top"
-                        android:text="test@gmail.com"
+                        android:text="@string/test_gmail_com"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="left|center"
+                        android:layout_gravity="start|center"
                         android:fontFamily="@font/outfit_light"
-                        android:text="Email"
+                        android:text="@string/email"
                         android:textColor="@color/Dark_Dark_200"
                         android:textSize="12sp" />
 
@@ -261,7 +269,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:src="@drawable/icon_chevronright" />
+                    android:src="@drawable/icon_chevronright"
+                    android:contentDescription="@string/arrow_icon" />
 
 
             </LinearLayout>
@@ -287,7 +296,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:src="@drawable/icon_password" />
+                    android:src="@drawable/icon_password"
+                    android:contentDescription="@string/password_icon" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -295,25 +305,26 @@
                     android:layout_weight="8"
                     android:gravity="top"
                     android:orientation="vertical"
-                    android:paddingStart="14dp">
+                    android:paddingStart="14dp"
+                    android:paddingEnd="0dp">
 
                     <TextView
                         android:id="@+id/profile_password"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="left|center"
+                        android:layout_gravity="start|center"
                         android:fontFamily="@font/outfit_regular"
                         android:gravity="top"
-                        android:text="********"
+                        android:text="@string/star_for_password"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="left|center"
+                        android:layout_gravity="start|center"
                         android:fontFamily="@font/outfit_light"
-                        android:text="Password"
+                        android:text="@string/password"
                         android:textColor="@color/Dark_Dark_200"
                         android:textSize="12sp" />
 
@@ -324,7 +335,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:src="@drawable/icon_chevronright" />
+                    android:src="@drawable/icon_chevronright"
+                    android:contentDescription="@string/arrow_icon" />
 
 
             </LinearLayout>

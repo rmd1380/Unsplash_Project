@@ -4,22 +4,22 @@
     <item
         android:id="@+id/feed_nav"
         android:icon="@drawable/icon_home"
-        android:title="Feed"
+        android:title="@string/feed"
         />
     <item
         android:id="@+id/topic_nav"
         android:icon="@drawable/icon_category"
-        android:title="Topic"
+        android:title="@string/topics"
         />
     <item
         android:id="@+id/search_nav"
         android:icon="@drawable/icon_search"
-        android:title="Search"
+        android:title="@string/search"
         />
     <item
         android:id="@+id/profile_nav"
         android:icon="@drawable/icon_user"
-        android:title="Profile"
+        android:title="@string/profile"
         />
 
 </menu>

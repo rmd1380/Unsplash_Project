@@ -15,25 +15,26 @@ import javax.inject.Inject
 class FeedProfileFragmentViewModel @Inject constructor(private val repositoryFeed: RepositoryFeed) :
     ViewModel() {
 
-    private var mPhotoDetail = MutableLiveData<Resource<PhotoResponse>>()
     private var mUserPhotoList = MutableLiveData<Resource<List<PhotoResponse>>>()
+    private var mUserByUsername = MutableLiveData<Resource<PhotoResponse>>()
 
-    fun getLiveDataObserverPhotoDetail(id: String): LiveData<Resource<PhotoResponse>> {
-        viewModelScope.launch {
-            mPhotoDetail.postValue(Resource.Loading())
-
-            mPhotoDetail.postValue(repositoryFeed.getPhotoDetailById(id))
-        }
-        return mPhotoDetail
-    }
-
-    fun getLiveDataObserverUserPhotoList(id: String): LiveData<Resource<List<PhotoResponse>>> {
+    fun getLiveDataObserverUserPhotoList(username: String): LiveData<Resource<List<PhotoResponse>>> {
         viewModelScope.launch {
             mUserPhotoList.postValue(Resource.Loading())
 
-            mUserPhotoList.postValue(repositoryFeed.getUserByUsername(id))
+            mUserPhotoList.postValue(repositoryFeed.getUserPhotos(username))
         }
         return mUserPhotoList
+    }
+
+
+    fun getLiveDataObserverUserByUsername(username: String): LiveData<Resource<PhotoResponse>> {
+        viewModelScope.launch {
+            mUserByUsername.postValue(Resource.Loading())
+
+            mUserByUsername.postValue(repositoryFeed.getUserByUsername(username))
+        }
+        return mUserByUsername
     }
 
 }

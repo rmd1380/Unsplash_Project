@@ -1,30 +1,20 @@
 package com.example.unsplashproject.fragments.topicfragment
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.unsplashproject.R
 import com.example.unsplashproject.adapter.TopicAdapter
-import com.example.unsplashproject.model.response.TopicResponse
 import com.example.unsplashproject.services.Resource
-import com.example.unsplashproject.services.ServiceApi
-import com.example.unsplashproject.services.ServiceBuilder
-import com.example.unsplashproject.viewmodels.feedfragmentviewmodels.FeedDetailFragmentViewModel
-import com.example.unsplashproject.viewmodels.feedfragmentviewmodels.FeedFragmentViewModel
 import com.example.unsplashproject.viewmodels.topicfragmentviewmodels.TopicFragmentViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import dagger.hilt.android.scopes.ActivityScoped
-import retrofit2.Call
-import retrofit2.Response
 
 @AndroidEntryPoint
 class TopicFragment : Fragment() {

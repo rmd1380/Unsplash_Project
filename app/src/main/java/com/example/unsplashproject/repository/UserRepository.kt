@@ -1,8 +1,6 @@
 package com.example.unsplashproject.repository
 
 import android.app.Application
-import android.graphics.Bitmap
-import androidx.compose.ui.graphics.asImageBitmap
 import androidx.lifecycle.LiveData
 import com.example.unsplashproject.dao.UserDao
 import com.example.unsplashproject.db.AppDatabase
@@ -11,12 +9,12 @@ import com.example.unsplashproject.model.login.UserModel
 class UserRepository(application: Application) {
 
     private var userDao: UserDao
-    private var getlist: LiveData<List<UserModel>>
+    private var getList: LiveData<List<UserModel>>
 
     init {
         val database = AppDatabase.getInstance(context = application)
         userDao = database.userDao()
-        getlist = userDao.getAllUserDetail()
+        getList = userDao.getAllUserDetail()
     }
 
     suspend fun insertUser(userModel: UserModel) {
@@ -28,7 +26,7 @@ class UserRepository(application: Application) {
     }
 
     fun getUserInfo(): LiveData<List<UserModel>> {
-        return getlist
+        return getList
     }
 
     fun isUserExist(email: String): LiveData<Boolean> {

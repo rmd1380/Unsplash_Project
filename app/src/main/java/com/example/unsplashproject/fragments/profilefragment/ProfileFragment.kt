@@ -201,7 +201,6 @@ class ProfileFragment : Fragment() {
 
             }
         }
-
         addProfilePhoto.setOnClickListener {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 if (requireActivity().checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED

@@ -4,7 +4,6 @@
     <string name="req_for_valid_email">Please enter a valid email</string>
     <string name="invalid_password">Invalid Password</string>
     <string name="req_for_valid_password">at least 8 character (1..9,a..z)</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="feed">Feed</string>
     <string name="profile">Profile</string>
     <string name="topics">Topics</string>
@@ -18,12 +17,8 @@
     <string name="feedDetailImgProfile">feedDetailImgProfile</string>
     <string name="topicDetailImg">topicDetailImg</string>
     <string name="feedDetailImg">feedDetailImg</string>
-    <string name="Alishia_Marsi">Alishia Marsi</string>
-    <string name="Current_Event">Current Event</string>
     <string name="photos">Photos</string>
     <string name="users">Users</string>
-    <string name="test_text">Things we love: 🍞 Crispbread (naturally) 🌍 Our planet 😋 Delicious food, everyday</string>
-    <string name="test_text_topic">Covering the latest important events, news-worthy moments and movements from around the world — from political protests to cultural celebrations. When submitting, please provide a photo description so we understand the full context of the image</string>
     <string name="email">Email</string>
     <string name="unsplash_logo">Unsplash Logo</string>
     <string name="password">Password</string>

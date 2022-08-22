@@ -13,7 +13,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.unsplashproject.R
-import com.example.unsplashproject.model.response.PhotoResponse
+import com.example.unsplashproject.model.response.FeedPhotoResponse
 import com.example.unsplashproject.services.Resource
 import com.example.unsplashproject.viewmodels.feedfragmentviewmodels.FeedDetailFragmentViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -29,7 +29,7 @@ class FeedDetailFragment : Fragment() {
     private lateinit var publishDate: TextView
     private lateinit var camera: TextView
     private lateinit var userName: TextView
-    var photoResponse: Resource<PhotoResponse>? = null
+    var feedPhotoResponse: Resource<FeedPhotoResponse>? = null
     var bundle = Bundle()
     private val viewModel: FeedDetailFragmentViewModel by activityViewModels()
     override fun onCreateView(
@@ -46,7 +46,7 @@ class FeedDetailFragment : Fragment() {
         bindView(view)
         viewModel()
         ivProfile.setOnClickListener {
-            bundle.putString("ImageUserNameProf", photoResponse?.data?.user?.username)
+            bundle.putString("ImageUserNameProf", feedPhotoResponse?.data?.user?.username)
             findNavController().navigate(R.id.feedProfileFragment, bundle)
         }
         ivArrowBack.setOnClickListener {
@@ -63,7 +63,7 @@ class FeedDetailFragment : Fragment() {
                     is Resource.Loading -> {
                     }
                     is Resource.Success -> {
-                        photoResponse = it
+                        feedPhotoResponse = it
                         viewCount.text = it.data?.views.toString()
                         downloadCount.text = it.data?.downloads.toString()
                         publishDate.text = it.data?.createdAt.toString()

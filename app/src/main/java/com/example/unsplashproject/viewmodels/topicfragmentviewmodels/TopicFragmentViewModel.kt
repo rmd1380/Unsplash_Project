@@ -16,6 +16,7 @@ class TopicFragmentViewModel @Inject constructor( private val repositoryFeed: Re
 
     private var mTopicList = MutableLiveData<Resource<List<TopicResponse>>>()
 
+
     fun getLiveDataObserverTopicList(): LiveData<Resource<List<TopicResponse>>> {
         viewModelScope.launch {
             mTopicList.postValue(Resource.Loading())

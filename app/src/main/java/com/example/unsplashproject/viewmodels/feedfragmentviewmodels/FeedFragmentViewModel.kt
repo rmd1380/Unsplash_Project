@@ -1,30 +1,30 @@
 package com.example.unsplashproject.viewmodels.feedfragmentviewmodels
 
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.unsplashproject.model.response.PhotoResponse
-import com.example.unsplashproject.repositories.RepositoryFeed
-import com.example.unsplashproject.services.Resource
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.cachedIn
+import androidx.paging.liveData
+import com.example.unsplashproject.paging.BasePagingSource
+import com.example.unsplashproject.services.ServiceApi
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class FeedFragmentViewModel @Inject constructor(private val repositoryFeed: RepositoryFeed) :
+class FeedFragmentViewModel @Inject constructor(
+    private val api: ServiceApi,
+) :
     ViewModel() {
 
-    private var mPhotoList = MutableLiveData<Resource<List<PhotoResponse>>>()
 
-    fun getLiveDataObserverPhotoList():LiveData<Resource<List<PhotoResponse>>> {
-        viewModelScope.launch {
-            mPhotoList.postValue(Resource.Loading())
-
-            mPhotoList.postValue(repositoryFeed.getPhoto())
-        }
-        return mPhotoList
-    }
-
+    fun getImages() =
+        Pager(config = PagingConfig(pageSize = 10),
+            pagingSourceFactory = { BasePagingSource{
+                api.getPhoto(it,10)
+            } }
+        ).liveData.cachedIn(viewModelScope)
 }
+

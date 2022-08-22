@@ -1,76 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:orientation="vertical"
     tools:context=".fragments.feedFragment.FeedProfileFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:fitsSystemWindows="true">
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="56dp">
 
-            <ImageView
-                android:id="@+id/arrow_back_profile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="28dp"
-                android:contentDescription="@string/arrowBack"
-                android:src="@drawable/icon_arrow_left" />
-
-            <TextView
-                android:id="@+id/toolbar_username"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:fontFamily="@font/outfit_regular"
-                android:gravity="start"
-                android:textColor="@color/black"
-                android:textSize="14sp" />
-        </androidx.appcompat.widget.Toolbar>
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-        <LinearLayout
+        <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            app:contentScrim="@color/white"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="top"
+                android:layout_marginTop="?attr/actionBarSize"
+                android:background="@color/white"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:minHeight="?attr/actionBarSize"
+                android:orientation="vertical"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                app:layout_collapseMode="parallax">
 
                 <com.google.android.material.imageview.ShapeableImageView
-                    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay."
                     android:id="@+id/iv_profile"
                     android:layout_width="110dp"
                     android:layout_height="110dp"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="125dp"
+                    android:layout_gravity="center_horizontal"
                     android:layout_marginTop="44dp"
-                    android:layout_marginEnd="125dp"
-                    android:layout_marginBottom="12dp"
                     android:contentDescription="@string/feedDetailImgProfile"
                     android:scaleType="centerCrop"
                     android:src="@color/Dark_Dark_100"
                     app:civ_border_color="@color/white"
-                    app:civ_border_width="1dp" />
+                    app:civ_border_width="1dp"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay." />
 
                 <TextView
                     android:id="@+id/profile_username"
@@ -82,7 +53,7 @@
                     android:layout_marginEnd="124dp"
                     android:fontFamily="@font/outfit_regular"
                     android:gravity="center"
-                    android:textColor="@color/black"
+                    android:textColor="@color/Dark_Dark_500"
                     android:textSize="20sp" />
 
                 <TextView
@@ -101,15 +72,37 @@
 
             </LinearLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rec_profile"
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar_profile"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                tools:listitem="@layout/photo_item_design" />
+                android:layout_height="56dp"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme"
+                app:layout_collapseMode="pin"
+                android:background="@color/white"
+                app:navigationIcon="@drawable/icon_arrow_left"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/toolbar_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:fontFamily="@font/outfit_regular"
+                    android:gravity="start"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+            </androidx.appcompat.widget.Toolbar>
 
-    </androidx.core.widget.NestedScrollView>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
 
-</LinearLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rec_profile"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:listitem="@layout/photo_item_design" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

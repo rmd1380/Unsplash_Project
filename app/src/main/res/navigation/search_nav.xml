@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.example.unsplashproject.fragments.searchfragment.SearchFragment"
+        android:name="com.example.unsplashproject.fragments.searchFragment.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
     <fragment

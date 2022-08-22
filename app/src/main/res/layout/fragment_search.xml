@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:orientation="vertical"
-    tools:context=".fragments.searchfragment.SearchFragment">
+    tools:context=".fragments.searchFragment.SearchFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -94,11 +94,4 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/Dark_Dark_100" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rec_search"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-
 </LinearLayout>

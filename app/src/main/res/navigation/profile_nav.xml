@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.unsplashproject.fragments.profilefragment.ProfileFragment"
+        android:name="com.example.unsplashproject.fragments.profileFragment.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>

@@ -2,7 +2,6 @@ package com.example.unsplashproject
 
 import android.content.Intent
 import android.content.SharedPreferences
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
@@ -12,9 +11,9 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.ViewModelProvider
+import com.example.unsplashproject.util.snackBar
 import com.example.unsplashproject.model.login.UserModel
 import com.example.unsplashproject.viewmodels.UserViewModel
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -30,6 +29,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var textInputEmail: TextInputLayout
     private lateinit var textInputPassword: TextInputLayout
     private lateinit var userViewModel: UserViewModel
+    private lateinit var rootView:ConstraintLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +37,7 @@ class LoginActivity : AppCompatActivity() {
         bindView()
         isUserLogin()
         init()
+
     }
 
     private fun init() {
@@ -55,7 +56,7 @@ class LoginActivity : AppCompatActivity() {
                             saveInSharedPreferences(email)
                             finish()
                         } else {
-                            textInputPassword.error="Error"
+                            textInputPassword.error = "Error"
                             if (textInputPassword.childCount == 2) {
                                 textInputPassword.getChildAt(1).visibility = View.GONE
                             }
@@ -68,13 +69,22 @@ class LoginActivity : AppCompatActivity() {
                         )
                             .matches())
                     ) {
-                        showSnackBarEmail()
+                        rootView.snackBar(
+                            "Invalid Email",
+                            "Please enter a valid email"
+                        )
                     } else if (etPassword.text.trim()
                             .isEmpty() || etPassword.text.trim().length < 8
                     ) {
-                        showSnackBarPassword()
+                        rootView.snackBar(
+                            "Invalid Password",
+                            "at least 8 character (1..9,a..z)"
+                        )
                     } else if (!isValidPassword(etPassword.text.toString().trim())) {
-                        showSnackBarPassword()
+                        rootView.snackBar(
+                            "Invalid Password",
+                            "at least 8 character (1..9,a..z)"
+                        )
                     } else {
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
@@ -89,6 +99,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun bindView() {
+        rootView=findViewById(R.id.sn_view)
         btnLogin = findViewById(R.id.btn_login)
         lvMain = findViewById(R.id.sn_view)
         etEmail = findViewById(R.id.et_email)
@@ -105,26 +116,6 @@ class LoginActivity : AppCompatActivity() {
         val matcher: Matcher = pattern.matcher(password)
 
         return matcher.matches()
-    }
-
-    private fun showSnackBarEmail() {
-        val snackBar = Snackbar.make(lvMain!!, "", Snackbar.LENGTH_SHORT)
-        val customSnackView = layoutInflater.inflate(R.layout.snackbar_email, null)
-        snackBar.view.setBackgroundColor(Color.TRANSPARENT)
-        val snackBarLayout: Snackbar.SnackbarLayout =
-            snackBar.view as Snackbar.SnackbarLayout
-        snackBarLayout.addView(customSnackView, 0)
-        snackBar.show()
-    }
-
-    private fun showSnackBarPassword() {
-        val snackBar = Snackbar.make(lvMain!!, "", Snackbar.LENGTH_SHORT)
-        val customSnackView = layoutInflater.inflate(R.layout.snackbar_password, null)
-        snackBar.view.setBackgroundColor(Color.TRANSPARENT)
-        val snackBarLayout: Snackbar.SnackbarLayout =
-            snackBar.view as Snackbar.SnackbarLayout
-        snackBarLayout.addView(customSnackView, 0)
-        snackBar.show()
     }
 
     private fun insertDataToDatabase() {
@@ -144,9 +135,9 @@ class LoginActivity : AppCompatActivity() {
         edit.apply()
     }
 
-    private fun isUserLogin(){
+    private fun isUserLogin() {
         val sharedPreferences: SharedPreferences = getSharedPreferences("UserEmail", MODE_PRIVATE)
-        if (sharedPreferences.getString("email",null) != null){
+        if (sharedPreferences.getString("email", null) != null) {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }

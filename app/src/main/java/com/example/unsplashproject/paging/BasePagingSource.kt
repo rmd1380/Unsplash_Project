@@ -1,37 +1,41 @@
 package com.example.unsplashproject.paging
 
-import androidx.paging.Pager
-import androidx.paging.PagingConfig
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.example.unsplashproject.model.response.FeedPhotoResponse
-import com.example.unsplashproject.services.ServiceApi
-import retrofit2.HttpException
 import retrofit2.Response
-import java.io.IOException
 
 class BasePagingSource<T : Any>(private val backend: suspend (Int) -> Response<List<T>>) :
     PagingSource<Int, T>() {
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, T> {
         val nextPageNumber = params.key ?: 1
-        val response = backend.invoke(nextPageNumber)
 
-        return if (response.isSuccessful) {
-            val body = response.body()!!
+        try {
+            val response = backend.invoke(nextPageNumber)
 
-            LoadResult.Page(
-                data = body,
-                prevKey = null,
-                nextKey = nextPageNumber.plus(1)
+            return if (response.isSuccessful) {
+                val body = response.body()!!
 
-            )
-        } else {
-            val errorBody = response.errorBody()
-            LoadResult.Error(
-                RuntimeException(errorBody.toString())
-            )
+                LoadResult.Page(
+                    data = body,
+                    prevKey = null,
+                    nextKey = nextPageNumber.plus(1)
+
+                )
+            } else {
+                val errorBody = response.errorBody()
+                LoadResult.Error(
+                    RuntimeException(errorBody.toString())
+                )
+            }
+        }catch (e:Exception)
+        {
+            e.printStackTrace()
         }
+        return LoadResult.Page(
+            data = emptyList(),
+            prevKey = null,
+            nextKey = null)
     }
 
     override fun getRefreshKey(state: PagingState<Int, T>): Int? {

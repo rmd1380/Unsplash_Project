@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.unsplashproject.R
+import com.example.unsplashproject.util.snackBar
 import com.example.unsplashproject.adapter.TopicAdapter
 import com.example.unsplashproject.services.Resource
 import com.example.unsplashproject.viewmodels.topicfragmentviewmodels.TopicFragmentViewModel
@@ -56,6 +57,7 @@ class TopicFragment : Fragment() {
                     adapter.notifyDataSetChanged()
                 }
                 is Resource.Error -> {
+                    requireView().snackBar("Error","Check Your Connection")
                     Toast.makeText(context, "Error in getting data", Toast.LENGTH_SHORT).show()
                 }
             }

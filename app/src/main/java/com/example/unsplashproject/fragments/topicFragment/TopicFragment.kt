@@ -57,8 +57,7 @@ class TopicFragment : Fragment() {
                     adapter.notifyDataSetChanged()
                 }
                 is Resource.Error -> {
-                    requireView().snackBar("Error","Check Your Connection")
-                    Toast.makeText(context, "Error in getting data", Toast.LENGTH_SHORT).show()
+                    requireView().snackBar("Internet Error","Check Your Connection")
                 }
             }
         }

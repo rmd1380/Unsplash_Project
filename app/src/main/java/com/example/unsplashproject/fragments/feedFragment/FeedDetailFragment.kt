@@ -7,14 +7,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.unsplashproject.R
 import com.example.unsplashproject.model.response.FeedPhotoResponse
 import com.example.unsplashproject.services.Resource
+import com.example.unsplashproject.util.snackBar
 import com.example.unsplashproject.viewmodels.feedfragmentviewmodels.FeedDetailFragmentViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -22,14 +25,15 @@ import dagger.hilt.android.AndroidEntryPoint
 class FeedDetailFragment : Fragment() {
 
     private lateinit var ivProfile: ImageView
-    private lateinit var ivArrowBack: ImageView
+    private lateinit var arrowBack: Toolbar
     private lateinit var mainPhoto: ImageView
     private lateinit var viewCount: TextView
     private lateinit var downloadCount: TextView
     private lateinit var publishDate: TextView
     private lateinit var camera: TextView
     private lateinit var userName: TextView
-    var feedPhotoResponse: Resource<FeedPhotoResponse>? = null
+    private lateinit var feedDetail:LinearLayout
+    private var feedPhotoResponse: Resource<FeedPhotoResponse>? = null
     var bundle = Bundle()
     private val viewModel: FeedDetailFragmentViewModel by activityViewModels()
     override fun onCreateView(
@@ -49,7 +53,7 @@ class FeedDetailFragment : Fragment() {
             bundle.putString("ImageUserNameProf", feedPhotoResponse?.data?.user?.username)
             findNavController().navigate(R.id.feedProfileFragment, bundle)
         }
-        ivArrowBack.setOnClickListener {
+        arrowBack.setNavigationOnClickListener {
             findNavController().popBackStack()
         }
     }
@@ -81,8 +85,7 @@ class FeedDetailFragment : Fragment() {
                             .into(ivProfile)
                     }
                     is Resource.Error -> {
-                        Log.d("getDetail", "Error in getting data " + it.message)
-                        Toast.makeText(context, "Error in getting data ", Toast.LENGTH_SHORT).show()
+                        feedDetail.snackBar("Error in getting data", "Check your connection!!")
                     }
                 }
             }
@@ -90,12 +93,13 @@ class FeedDetailFragment : Fragment() {
 
     private fun bindView(view: View) {
         ivProfile = view.findViewById(R.id.feed_iv_profile_photo)
-        ivArrowBack = view.findViewById(R.id.arrow_back)
+        arrowBack = view.findViewById(R.id.toolbar_feed_detail)
         mainPhoto = view.findViewById(R.id.feed_iv_main_photo)
         viewCount = view.findViewById(R.id.tv_view_count)
         downloadCount = view.findViewById(R.id.tv_download_count)
         publishDate = view.findViewById(R.id.tv_publish_date)
         camera = view.findViewById(R.id.tv_camera)
         userName = view.findViewById(R.id.tv_profile_username)
+        feedDetail=view.findViewById(R.id.feed_detail)
     }
 }

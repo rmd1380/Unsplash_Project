@@ -6,21 +6,27 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.unsplashproject.R
 import com.example.unsplashproject.adapter.PhotosAndFeedAdapter
 import com.example.unsplashproject.services.Resource
+import com.example.unsplashproject.util.snackBar
 import com.example.unsplashproject.viewmodels.topicfragmentviewmodels.TopicDetailFragmentViewModel
+import com.facebook.shimmer.ShimmerFrameLayout
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -33,6 +39,8 @@ class TopicDetailFragment : Fragment() {
     private lateinit var tvTopicDescription: TextView
     private lateinit var recTopicDetail: RecyclerView
     private lateinit var adapterTopicDetail: PhotosAndFeedAdapter
+    private lateinit var topicDetailLayout: CoordinatorLayout
+    private lateinit var shimmerLayout: ShimmerFrameLayout
     private val viewModel: TopicDetailFragmentViewModel by activityViewModels()
     var bundle = Bundle()
 
@@ -78,10 +86,29 @@ class TopicDetailFragment : Fragment() {
                     }
                 }
             }
-        viewModel.getTopicImages(requireArguments().getString("TopicID")!!).observe(viewLifecycleOwner)
-        {
-            lifecycleScope.launch(Dispatchers.IO) {
-                adapterTopicDetail.submitData(it)
+        viewModel.getTopicImages(requireArguments().getString("TopicID")!!)
+            .observe(viewLifecycleOwner)
+            {
+                lifecycleScope.launch(Dispatchers.IO) {
+                    adapterTopicDetail.submitData(it)
+                }
+            }
+
+        lifecycleScope.launch(viewLifecycleOwner.lifecycleScope.coroutineContext) {
+            adapterTopicDetail.loadStateFlow.collectLatest { loadStates ->
+                if (loadStates.refresh is LoadState.Loading) {
+                    shimmerLayout.startShimmerAnimation()
+                    shimmerLayout.visibility = View.VISIBLE
+                    recTopicDetail.visibility = View.GONE
+                } else {
+                    shimmerLayout.stopShimmerAnimation()
+                    shimmerLayout.visibility = View.GONE
+                    recTopicDetail.visibility = View.VISIBLE
+                }
+
+                if (loadStates.append is LoadState.Error) {
+                    topicDetailLayout.snackBar("Error", "Check your Internet and try again!")
+                }
             }
         }
     }
@@ -102,6 +129,13 @@ class TopicDetailFragment : Fragment() {
         tvToolbarTopic = view.findViewById(R.id.tv_toolbar_topic)
         tvTopic = view.findViewById(R.id.tv_topic)
         tvTopicDescription = view.findViewById(R.id.topic_description)
-        topicToolbar=view.findViewById(R.id.toolbar_topic)
+        topicToolbar = view.findViewById(R.id.toolbar_topic)
+        topicDetailLayout = view.findViewById(R.id.topic_detail_layout)
+        shimmerLayout = view.findViewById(R.id.shimmer_layout_topic_detail)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        shimmerLayout.startShimmerAnimation()
     }
 }

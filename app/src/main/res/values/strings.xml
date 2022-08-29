@@ -1,9 +1,5 @@
 <resources>
     <string name="app_name">UnsplashProject</string>
-    <string name="invalid_email">Invalid Email</string>
-    <string name="req_for_valid_email">Please enter a valid email</string>
-    <string name="invalid_password">Invalid Password</string>
-    <string name="req_for_valid_password">at least 8 character (1..9,a..z)</string>
     <string name="feed">Feed</string>
     <string name="profile">Profile</string>
     <string name="topics">Topics</string>
@@ -13,7 +9,6 @@
     <string name="downloads">Downloads</string>
     <string name="publishDate">Publish Date</string>
     <string name="camera">Camera</string>
-    <string name="arrowBack">arrowBack</string>
     <string name="feedDetailImgProfile">feedDetailImgProfile</string>
     <string name="topicDetailImg">topicDetailImg</string>
     <string name="feedDetailImg">feedDetailImg</string>

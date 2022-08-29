@@ -7,7 +7,7 @@ import com.example.unsplashproject.model.login.UserModel
 @Dao
 interface UserDao {
     //CRUD
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert
     suspend fun insert(user: UserModel)
 
     @Update

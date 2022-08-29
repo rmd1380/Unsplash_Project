@@ -35,6 +35,7 @@
         android:layout_height="match_parent"
         android:layout_marginHorizontal="8dp"
         android:paddingVertical="8dp"
+        tools:listitem="@layout/topic_item_design"
         android:clipToPadding="false"/>
 
 </LinearLayout>

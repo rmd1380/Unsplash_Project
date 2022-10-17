@@ -2,10 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sn_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:id="@+id/sn_view"
     tools:context=".LoginActivity">
 
     <LinearLayout
@@ -23,66 +23,72 @@
             android:layout_height="46dp"
             android:layout_gravity="center"
             android:layout_marginBottom="58dp"
-            app:srcCompat="@drawable/unsplash_wordmark_logo_1" />
+            app:srcCompat="@drawable/unsplash_word_mark_logo_1"
+            android:contentDescription="@string/unsplash_logo" />
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_email"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:boxStrokeColor="@color/Dark_Dark_200"
-            app:hintTextColor="@color/Neutral_Neutral_800"
             app:boxCornerRadiusBottomEnd="8dp"
             app:boxCornerRadiusBottomStart="8dp"
-            app:boxCornerRadiusTopStart="8dp"
             app:boxCornerRadiusTopEnd="8dp"
-            app:boxStrokeErrorColor="@color/Primary_Primary_500">
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxStrokeColor="@color/Dark_Dark_200"
+            app:boxStrokeErrorColor="@color/Primary_Primary_500"
+            app:hintTextColor="@color/Neutral_Neutral_800">
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/et_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="26dp"
-                android:hint="Email"
+                android:hint="@string/email"
                 android:inputType="textEmailAddress" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_password"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:boxStrokeColor="@color/Dark_Dark_200"
             app:boxCornerRadiusBottomEnd="8dp"
             app:boxCornerRadiusBottomStart="8dp"
-            app:boxCornerRadiusTopStart="8dp"
             app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxStrokeColor="@color/Dark_Dark_200"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/Dark_Dark_500"
+            app:boxStrokeErrorColor="@color/Primary_Primary_500"
             app:hintTextColor="@color/Neutral_Neutral_800"
-            app:boxStrokeErrorColor="@color/Primary_Primary_500">
+            >
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/et_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
-                android:hint="Password"
-                android:inputType="textEmailAddress" />
+                android:hint="@string/password"
+                android:inputType="textPassword" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/btn_login"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:background="@drawable/btn_shape"
             android:gravity="center"
             android:paddingHorizontal="24dp"
             android:paddingVertical="16dp"
-            app:backgroundTint="@null"
-            android:text="Login"
+            android:text="@string/login"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            app:backgroundTint="@null" />
     </LinearLayout>
 
 

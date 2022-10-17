@@ -1,51 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    
-    <color name="Dark_Dark_800">#2a2a2a</color>
-    <color name="Dark_Dark_900">#0f0f0f</color>
-    <color name="Dark_Dark_700">#444444</color>
+
     <color name="Dark_Dark_600">#5f5f5f</color>
     <color name="Dark_Dark_500">#7a7a7a</color>
-    <color name="Dark_Dark_400">#949494</color>
-    <color name="Dark_Dark_300">#afafaf</color>
     <color name="Dark_Dark_200">#cacaca</color>
     <color name="Dark_Dark_100">#e4e4e4</color>
 
     <color name="Neutral_Neutral_800">#2F324F</color>
-    <color name="Neutral_Neutral_900">#1D1F31</color>
-    <color name="Neutral_Neutral_700">#41456D</color>
-    <color name="Neutral_Neutral_600">#53588B</color>
     <color name="Neutral_Neutral_500">#686EA6</color>
-    <color name="Neutral_Neutral_400">#868BB8</color>
-    <color name="Neutral_Neutral_300">#A5A8C9</color>
-    <color name="Neutral_Neutral_200">#C3C5DB</color>
-    <color name="Neutral_Neutral_100">#E1E2ED</color>
 
-    <color name="Secondary_Secondary_900">#000A41</color>
-    <color name="Secondary_Secondary_800">#001581</color>
-    <color name="Secondary_Secondary_700">#001FC2</color>
-    <color name="Secondary_Secondary_600">#032CFF</color>
     <color name="Secondary_Secondary_500">#4462FF</color>
-    <color name="Secondary_Secondary_400">#6981FF</color>
-    <color name="Secondary_Secondary_300">#8FA1FF</color>
-    <color name="Secondary_Secondary_200">#B4C0FF</color>
-    <color name="Secondary_Secondary_100">#DAE0FF</color>
 
-    <color name="Primary_Primary_900">#2F0316</color>
-    <color name="Primary_Primary_800">#5E072B</color>
-    <color name="Primary_Primary_700">#8C0A41</color>
-    <color name="Primary_Primary_600">#BB0E56</color>
     <color name="Primary_Primary_500">#EA116C</color>
-    <color name="Primary_Primary_400">#F13E89</color>
     <color name="Primary_Primary_300">#F46EA6</color>
-    <color name="Primary_Primary_200">#F89EC4</color>
-    <color name="Primary_Primary_100">#FBCFE1</color>
+
 
 </resources>

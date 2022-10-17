@@ -7,7 +7,17 @@
 
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.example.unsplashproject.fragments.searchfragment.SearchFragment"
+        android:name="com.example.unsplashproject.fragments.searchFragment.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/feedDetailFragment"
+        android:name="com.example.unsplashproject.fragments.feedFragment.FeedDetailFragment"
+        android:label="fragment_feed_detail"
+        tools:layout="@layout/fragment_feed_detail" />
+    <fragment
+        android:id="@+id/feedProfileFragment"
+        android:name="com.example.unsplashproject.fragments.feedFragment.FeedProfileFragment"
+        android:label="fragment_feed_profile"
+        tools:layout="@layout/fragment_feed_profile" />
 </navigation>

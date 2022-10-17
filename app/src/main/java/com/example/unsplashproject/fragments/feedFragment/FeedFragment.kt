@@ -1,28 +1,38 @@
 package com.example.unsplashproject.fragments.feedFragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.unsplashproject.R
 import com.example.unsplashproject.adapter.PhotosAndFeedAdapter
-import com.example.unsplashproject.model.response.PhotoResponse
-import com.example.unsplashproject.services.Service
-import com.example.unsplashproject.services.ServiceBuilder
-import retrofit2.Call
-import retrofit2.Response
+import com.example.unsplashproject.util.snackBar
+import com.example.unsplashproject.viewmodels.feedfragmentviewmodels.FeedFragmentViewModel
+import com.facebook.shimmer.ShimmerFrameLayout
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
+
+@AndroidEntryPoint
 class FeedFragment : Fragment() {
 
     private lateinit var gridLayoutManager: GridLayoutManager
     private lateinit var adapter: PhotosAndFeedAdapter
     private lateinit var recFeed: RecyclerView
-    var bundle=Bundle()
+    private lateinit var shimmerLayout: ShimmerFrameLayout
+    private lateinit var feedLayout:LinearLayout
+    private val viewModel: FeedFragmentViewModel by viewModels()
+    var bundle = Bundle()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -32,52 +42,83 @@ class FeedFragment : Fragment() {
         init(view)
         return view
     }
+
     private fun init(view: View) {
         bindView(view)
         setupList()
-        callApi()
+        viewModel()
     }
 
-    private fun callApi() {
-        val service= ServiceBuilder.buildService(Service::class.java)
-        val requestCall=service.getPhoto()
-        requestCall.enqueue(object :retrofit2.Callback<List<PhotoResponse>>
+    private fun viewModel() {
+        viewModel.getImages().observe(viewLifecycleOwner)
         {
-            override fun onResponse(
-                call: Call<List<PhotoResponse>>,
-                response: Response<List<PhotoResponse>>
-            ) {
-                if(response.isSuccessful)
-                {
-                    Log.d("isSuccessful", response.code().toString())
-                    val photoList=response.body()!!
-                    adapter.setupList(photoList)
+
+            lifecycleScope.launch(Dispatchers.IO)
+            {
+                adapter.submitData(it)
+            }
+        }
+        lifecycleScope.launch(viewLifecycleOwner.lifecycleScope.coroutineContext) {
+            adapter.loadStateFlow.collectLatest { loadStates ->
+                if (loadStates.refresh is LoadState.Loading) {
+                    shimmerLayout.startShimmerAnimation()
+                    shimmerLayout.visibility=View.VISIBLE
+                    recFeed.visibility = View.GONE
+                } else {
+                    shimmerLayout.stopShimmerAnimation()
+                    shimmerLayout.visibility=View.GONE
+                    recFeed.visibility = View.VISIBLE
                 }
 
-                else{
-                    Log.d("isFailed", response.code().toString())
+                if (loadStates.append is LoadState.Error) {
+                    feedLayout.snackBar("Error", "Check your Internet and try again!")
                 }
             }
-            override fun onFailure(call: Call<List<PhotoResponse>>, t: Throwable) {
-                Log.d("onFailure", t.message.toString())
+        }
 
-            }
-
-        })
+//        viewModel.getLiveDataObserverPhotoList().observe(viewLifecycleOwner)
+//        {
+//            when (it) {
+//                is Resource.Loading -> {
+//
+//                }
+//                is Resource.Success -> {
+//                    adapter.setupList(it.data)
+//                    adapter.notifyDataSetChanged()
+//                }
+//                is Resource.Error -> {
+//                    Toast.makeText(context, "Error in getting data", Toast.LENGTH_SHORT).show()
+//                }
+//            }
+//        }
     }
 
     private fun bindView(view: View) {
         recFeed = view.findViewById(R.id.rec_feed)
-
+        shimmerLayout = view.findViewById(R.id.shimmer_layout)
+        feedLayout=view.findViewById(R.id.feed_layout)
     }
 
     private fun setupList() {
+
+        adapter = PhotosAndFeedAdapter {
+            bundle.putString("ImageID", it.id)
+            findNavController().navigate(R.id.feedDetailFragment, bundle)
+        }
         gridLayoutManager = GridLayoutManager(context, 2)
         recFeed.layoutManager = gridLayoutManager
-        adapter = PhotosAndFeedAdapter(context) {
-            bundle.putString("ImageID", it.id)
-            findNavController().navigate(R.id.feedDetailFragment,bundle)
-        }
         recFeed.adapter = adapter
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        shimmerLayout.startShimmerAnimation()
+    }
+
+    override fun onPause() {
+        shimmerLayout.stopShimmerAnimation()
+        super.onPause()
     }
 }
+
